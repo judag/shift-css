@@ -1,6 +1,9 @@
 /*! shift-css - v0.0.1 - 2014-08-20
 * https://github.com/jordanranson/shift-css
 * Copyright (c) 2014 Jordan Ranson; Licensed under the Apache2 license */
+/*------------------------------------*
+    Master import list
+*------------------------------------*/
 /** * html5doctor.com Reset Stylesheet v1.6.1 (http://html5doctor.com/html-5-reset-stylesheet/) * Richard Clark (http://richclarkdesign.com) * http://cssreset.com */
 html,
 body,
@@ -186,6 +189,9 @@ body {
     Typography
 *------------------------------------*/
 /*------------------------------------*
+    Miscellaneous Components
+*------------------------------------*/
+/*------------------------------------*
     Anchor
 *------------------------------------*/
 .anchor {
@@ -322,6 +328,12 @@ body {
 /*------------------------------------*
     Responsive Grid
 *------------------------------------*/
+.row {
+  margin-bottom: 17px;
+}
+.row.row-margin-thick {
+  margin-bottom: 34px;
+}
 .col-1-8 {
   width: 12.5%;
 }

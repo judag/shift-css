@@ -9,3 +9,130 @@
 .batsu {
 
 }
+
+.inliner {
+    position: relative;
+    display: inline-block;
+
+    height: 1.5em;
+    min-width: 1ex;
+
+    line-height: 1.5em;
+    vertical-align: bottom;
+
+    i {
+        position: absolute;
+
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.inliner-element(@width, @height: 1.5em) {
+    width: @width;
+    height: @height;
+
+    i {
+        width: @width;
+        height: @height;
+    }
+}
+
+.icon {
+    .inliner-element(@iconHeight, @iconHeight);
+}
+
+.list-icon {
+    .inliner-element(@listIconHeight, @listIconHeight);
+    
+    i {
+        border-radius: 50%;
+        background-color: #ccc;
+    }
+
+    .badge {
+        position: absolute;
+        bottom: -2px;
+        right: -2px;
+
+        box-shadow: 0 0 0 3px @backgroundColor;
+    }
+
+    &.icon-positive i {
+        box-shadow: 0 0 0 3px @success;
+    }
+
+    &.icon-neutral i {
+        box-shadow: 0 0 0 3px @warning;
+    }
+
+    &.icon-negative i {
+        box-shadow: 0 0 0 3px @error;
+    }
+}
+
+.subtitle {
+    color: @textColorLight;
+}
+
+.tag {
+    display: inline-block;
+
+    padding: 0 7px;
+    height: @iconHeight;
+
+    border-radius: 3px;
+    background-color: @borderColorDark;
+
+    line-height: @iconHeight;
+    font-weight: 900;
+    font-size: @fontSizeSmall;
+    text-transform: uppercase;
+}
+
+.badge {
+    display: inline-block;
+    box-sizing: border-box;
+
+    padding: 0 (@iconHeightSmall / 2);
+    height: @iconHeightSmall;
+    min-width: @iconHeightSmall;
+
+    border-radius: @iconHeightSmall;
+    background-color: @borderColorDark;
+
+    line-height: @iconHeightSmall;
+    font-weight: 900;
+    font-size: @fontSizeTiny;
+    text-align: center;
+}
+
+
+/*------------------------------------*
+    Helpers
+*------------------------------------*/
+
+.push-left       { margin-right:  @paddingThin; }
+.push-far-left   { margin-right:  @padding; }
+
+.push-right      { margin-left: @paddingThin; }
+.push-far-right  { margin-left: @padding; }
+
+.push-top        { margin-bottom: @paddingThin; }
+.push-far-top    { margin-bottom: @padding; }
+
+.push-bottom     { margin-top: @paddingThin; }
+.push-far-bottom { margin-top: @padding; }
+
+.short-line      { line-height: 1.3em; }
+
+.click-through   { pointer-events: none; }
+
+.pointer         { cursor: pointer; }
+
+.no-select {
+    -webkit-touch-callout: none;
+    user-select: none;
+    cursor: default;
+}

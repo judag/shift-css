@@ -1,4 +1,4 @@
-/*! shift-css - v0.0.1 - 2014-08-20
+/*! shift-css - v0.0.1 - 2014-08-21
 * https://github.com/jordanranson/shift-css
 * Copyright (c) 2014 Jordan Ranson; Licensed under the Apache2 license */
 /*------------------------------------*
@@ -167,8 +167,8 @@ select {
     Colours
 *------------------------------------*/
 /*------------------------------------*
-    Heights
-*------------------------------------*/
+        Heights
+    *------------------------------------*/
 /*------------------------------------*
     Global
 *------------------------------------*/
@@ -193,7 +193,7 @@ body {
     Anchors
 *------------------------------------*/
 a {
-  color: #de7331;
+  color: #40b1d0;
   text-decoration: none;
 }
 a:link,
@@ -201,7 +201,7 @@ a:hover {
   text-decoration: underline;
 }
 a:visited {
-  color: #bd5d22;
+  color: #2c99b8;
 }
 /*------------------------------------*
     Typography
@@ -209,11 +209,143 @@ a:visited {
 h1,
 h2,
 h3 {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: default;
+}
+h1,
+h2,
+h3,
+strong {
   font-weight: 600;
 }
 /*------------------------------------*
     Miscellaneous Components
 *------------------------------------*/
+.inliner {
+  position: relative;
+  display: inline-block;
+  height: 1.5em;
+  min-width: 1ex;
+  line-height: 1.5em;
+  vertical-align: bottom;
+}
+.inliner i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+.icon {
+  width: 24px;
+  height: 24px;
+}
+.icon i {
+  width: 24px;
+  height: 24px;
+}
+.list-icon {
+  width: 44px;
+  height: 44px;
+}
+.list-icon i {
+  width: 44px;
+  height: 44px;
+}
+.list-icon i {
+  border-radius: 50%;
+  background-color: #ccc;
+}
+.list-icon .badge {
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  box-shadow: 0 0 0 3px #ffffff;
+}
+.list-icon.icon-positive i {
+  box-shadow: 0 0 0 3px #48cfad;
+}
+.list-icon.icon-neutral i {
+  box-shadow: 0 0 0 3px #ffce54;
+}
+.list-icon.icon-negative i {
+  box-shadow: 0 0 0 3px #ed5565;
+}
+.subtitle {
+  color: #919699;
+}
+.tag {
+  display: inline-block;
+  padding: 0 7px;
+  height: 24px;
+  border-radius: 3px;
+  background-color: #cdd1d4;
+  line-height: 24px;
+  font-weight: 900;
+  font-size: 11pt;
+  text-transform: uppercase;
+}
+.badge {
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 0 8px;
+  height: 16px;
+  min-width: 16px;
+  border-radius: 16px;
+  background-color: #cdd1d4;
+  line-height: 16px;
+  font-weight: 900;
+  font-size: 9pt;
+  text-align: center;
+}
+/*------------------------------------*
+    Helpers
+*------------------------------------*/
+.push-left {
+  margin-right: 10px;
+}
+.push-far-left {
+  margin-right: 17px;
+}
+.push-right {
+  margin-left: 10px;
+}
+.push-far-right {
+  margin-left: 17px;
+}
+.push-top {
+  margin-bottom: 10px;
+}
+.push-far-top {
+  margin-bottom: 17px;
+}
+.push-bottom {
+  margin-top: 10px;
+}
+.push-far-bottom {
+  margin-top: 17px;
+}
+.short-line {
+  line-height: 1.3em;
+}
+.click-through {
+  pointer-events: none;
+}
+.pointer {
+  cursor: pointer;
+}
+.no-select {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: default;
+}
 /*------------------------------------*
     Anchor
 *------------------------------------*/
@@ -426,6 +558,9 @@ h3 {
 .panel.panel-dimmed .list-block li {
   box-shadow: 0 -1px 0 #cdd1d4 inset;
 }
+.panel.panel-dimmed .list-icon .badge {
+  box-shadow: 0 0 0 3px #eceff3;
+}
 .panel > header {
   position: relative;
   padding: 0 17px;
@@ -435,6 +570,7 @@ h3 {
 }
 .panel > header h1 {
   display: inline-block;
+  margin-top: -4px;
   padding-right: 1px;
   height: 1em;
   line-height: 1em;
@@ -529,18 +665,72 @@ h3 {
 .list {
   list-style-type: none;
 }
+.list.list-x li {
+  cursor: pointer;
+}
+.list.list-x li.active {
+  cursor: default;
+}
 /*------------------------------------*
     Block List
 *------------------------------------*/
 .list-block li {
+  position: relative;
   padding: 17px;
   box-shadow: 0 -1px 0 #dadee1 inset;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: default;
+}
+.list-block li > span {
+  display: inline-block;
+  vertical-align: middle;
+}
+.list-block li.active {
+  background-color: #dadde0;
+}
+.list-block li.marked:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 5px;
+  bottom: 0px;
+  background: #40b1d0;
+}
+.list-block li.disabled {
+  cursor: default;
+}
+.list-block li.disabled > * {
+  opacity: 0.35;
+}
+.list-block li .tags {
+  position: absolute;
+  height: 1.5em;
+  right: 17px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  word-spacing: 0.5ex;
+}
+.list-block li .tags > * {
+  vertical-align: middle;
 }
 /*------------------------------------*
     Nav List
 *------------------------------------*/
 .list-nav li {
   margin-bottom: 7px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: default;
 }
 .list-nav a,
 .list-nav h2 {
@@ -561,7 +751,7 @@ h3 {
   color: #ffffff;
 }
 .list-nav h2 {
-  color: #1b1f29;
+  opacity: 0.35;
 }
 .list-nav .list-nav-header:first-child {
   margin-top: 0;

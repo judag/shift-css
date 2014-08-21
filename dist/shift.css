@@ -164,11 +164,18 @@ select {
     Font Sizes
 *------------------------------------*/
 /*------------------------------------*
+    Colours
+*------------------------------------*/
+/*------------------------------------*
+    Heights
+*------------------------------------*/
+/*------------------------------------*
     Global
 *------------------------------------*/
 body {
   margin: 0;
   padding: 0;
+  background-color: #242424;
   font-family: sans-serif;
   font-size: 13pt;
   line-height: 1.5em;
@@ -188,6 +195,17 @@ body {
 /*------------------------------------*
     Typography
 *------------------------------------*/
+h1 {
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+h2 {
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+h3 {
+  font-weight: 600;
+}
 /*------------------------------------*
     Miscellaneous Components
 *------------------------------------*/
@@ -198,9 +216,6 @@ body {
   position: absolute;
   z-index: 3;
   pointer-events: none;
-}
-.anchor .anchor-content > * {
-  pointer-events: all;
 }
 .anchor.anchor-topleft {
   top: 0;
@@ -257,33 +272,23 @@ body {
 .anchor.anchor-right {
   display: table;
 }
-.anchor.anchor-center .anchor-content,
-.anchor.anchor-top .anchor-content,
-.anchor.anchor-left .anchor-content,
-.anchor.anchor-bottom .anchor-content,
-.anchor.anchor-right .anchor-content {
+.anchor.anchor-center .anchor-wrapper,
+.anchor.anchor-top .anchor-wrapper,
+.anchor.anchor-left .anchor-wrapper,
+.anchor.anchor-bottom .anchor-wrapper,
+.anchor.anchor-right .anchor-wrapper {
   display: table-cell;
   vertical-align: middle;
 }
-.anchor.anchor-center .anchor-content > *,
-.anchor.anchor-top .anchor-content > *,
-.anchor.anchor-left .anchor-content > *,
-.anchor.anchor-bottom .anchor-content > *,
-.anchor.anchor-right .anchor-content > * {
-  display: inline-block;
-}
-.anchor.anchor-center .anchor-content,
-.anchor.anchor-top .anchor-content,
-.anchor.anchor-bottom .anchor-content {
+.anchor.anchor-center .anchor-wrapper,
+.anchor.anchor-top .anchor-wrapper,
+.anchor.anchor-bottom .anchor-wrapper {
   text-align: center;
 }
 .anchor.anchor-center {
   width: 100%;
   height: 100%;
   z-index: 2;
-}
-.anchor.anchor-center .anchor-content > * {
-  text-align: left;
 }
 .anchor.anchor-top {
   top: 0;
@@ -324,6 +329,11 @@ body {
 }
 .anchor.anchor-right.anchor-offset-thick {
   right: 34px;
+}
+.anchor-content {
+  display: inline-block;
+  pointer-events: all;
+  text-align: left;
 }
 /*------------------------------------*
     Responsive Grid
@@ -395,15 +405,122 @@ body {
 /*------------------------------------*
     Panel
 *------------------------------------*/
+.panel {
+  background-color: #ffffff;
+}
+.panel > header {
+  position: relative;
+  padding: 0 17px;
+  height: 62px;
+  box-shadow: 0 -1px 0 #cccccc inset;
+  line-height: 62px;
+}
+.panel > header h1 {
+  display: inline-block;
+  overflow: hidden;
+  padding-right: 1px;
+  height: 1em;
+  line-height: 1em;
+  vertical-align: middle;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 15pt;
+}
+.panel > header .panel-header-controls {
+  position: absolute;
+  right: 17px;
+  top: 15px;
+  min-width: 32px;
+  height: 32px;
+  line-height: 32px;
+  vertical-align: middle;
+}
+.panel > header.panel-header-center {
+  text-align: center;
+}
+.panel > header.panel-header-right {
+  text-align: right;
+}
+.panel > header.panel-header-right .panel-header-controls {
+  right: auto;
+  left: 17px;
+}
+.panel > header.panel-header-borderless {
+  box-shadow: none;
+}
+.panel > header.panel-header-inline {
+  height: 42px;
+  box-shadow: none;
+}
+.panel > header.panel-header-inline .panel-header-controls {
+  top: 9px;
+}
 .panel > section.panel-content-scroll {
   overflow-y: auto;
 }
 .panel-body.panel-body-padded {
   padding: 17px;
 }
+.panel-nav .panel-body.panel-body-padded {
+  padding-top: 0;
+}
 /*------------------------------------*
     Panel Group
 *------------------------------------*/
+.panel-group {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: nowrap;
+      -ms-flex-wrap: nowrap;
+          flex-wrap: nowrap;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-align-content: stretch;
+      -ms-flex-line-pack: stretch;
+          align-content: stretch;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+.panel-group.panel-align-center {
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.panel-group.panel-align-right {
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+/*------------------------------------*
+    Lists
+*------------------------------------*/
+.list {
+  list-style-type: none;
+}
+/*------------------------------------*
+    Block List
+*------------------------------------*/
+/*------------------------------------*
+    Nav List
+*------------------------------------*/
+.list-nav a {
+  display: inline-block;
+  margin-left: 17px;
+}
+.list-nav .list-nav-header:first-child {
+  margin-top: 0;
+}
+.list-nav-header {
+  margin-top: 17px;
+}
 /*------------------------------------*
     Table
 *------------------------------------*/

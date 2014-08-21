@@ -3,34 +3,69 @@
 *------------------------------------*/
 
 .panel {
-
+    background-color: @backgroundColor;
 }
 
 .panel > header {
+    position: relative;
 
+    padding: 0 @padding;
+    height: @headerHeight;
+
+    box-shadow: 0 -1px 0 @borderColor inset;
+
+    line-height: @headerHeight;
 
     h1 {
+        display: inline-block;
+        overflow: hidden;
 
+        padding-right: 1px;
+        height: 1em;
+
+        line-height: 1em;
+        vertical-align: middle;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        font-size: @fontSizeHeader;
     }
 
     .panel-header-controls {
+        position: absolute;
 
+        right: @padding;
+        top: (@headerHeight - @inputHeight) / 2;
+        min-width: @inputHeight;
+        height: @inputHeight;
+
+        line-height: @inputHeight;
+        vertical-align: middle;
     }
 
     &.panel-header-center {
-
+        text-align: center;
     }
 
     &.panel-header-right {
+        text-align: right;
 
+        .panel-header-controls {
+            right: auto;
+            left: @padding;
+        }
     }
 
     &.panel-header-borderless {
-
+        box-shadow: none;
     }
 
     &.panel-header-inline {
+        height: @headerHeight - 20px;
+        box-shadow: none;
 
+        .panel-header-controls {
+            top: (@headerHeight - @inputHeight) / 2 - 6;
+        }
     }
 }
 
@@ -50,15 +85,34 @@
     }
 }
 
+.panel-nav {
+    .panel-body {
+        &.panel-body-padded {
+            padding-top: 0;
+        }
+    }
+}
+
 
 /*------------------------------------*
     Panel Group
 *------------------------------------*/
 
 .panel-group {
-    
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    align-content: stretch;
+    justify-content: flex-start;
 
     .panel {
+    }
 
+    &.panel-align-center {
+        justify-content: center;
+    }
+
+    &.panel-align-right {
+        justify-content: flex-end;
     }
 }

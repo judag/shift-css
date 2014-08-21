@@ -9,7 +9,7 @@
 
     <link rel="icon" type="image/png" href="favicon.png">
     <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="../dist/shift.css">
     <link rel="stylesheet" type="text/css" href="site.css">
 
@@ -21,121 +21,126 @@
     <div class="app">
         <!-- Notification -->
         <div class="anchor anchor-offset-thick anchor-top">
-            <div class="anchor-content">
+            <div class="anchor-wrapper">
+                <div class="anchor-content">
 
+                </div>
             </div>
         </div>
 
         <!-- Menu button -->
         <div class="anchor anchor-offset-thick anchor-topleft">
-            <div class="anchor-content">
+            <div class="anchor-wrapper">
+                <div class="anchor-content">
 
+                </div>
             </div>
         </div>
 
         <!-- Menu button -->
         <div class="anchor anchor-offset-thick anchor-topright">
-            <div class="anchor-content">
+            <div class="anchor-wrapper">
+                <div class="anchor-content">
 
+                </div>
             </div>
         </div>
 
         <!-- Main content -->
         <div class="anchor anchor-offset-thick anchor-center">
-            <div class="anchor-content">
+            <div class="anchor-wrapper">
+                <div class="anchor-content">
 
-                <!-- Optional panel group -->
-                <div class="panel-group">
+                    <!-- Optional panel group -->
+                    <div class="panel-group" style="width:900px;height:640px">
 
-                    <!-- Navigation panel -->
-                    <div class="panel panel-nav">
-                        <header class="panel-header-borderless">
-                            <h1>Main Navigation</h1>
-                        </header>
-                        <section>
-                            <div class="panel-body">
+                        <!-- Navigation panel -->
+                        <div class="panel panel-nav" style="width:20%">
+                            <header class="panel-header-borderless">
+                                <h1>Main Navigation</h1>
+                            </header>
+                            <section>
+                                <div class="panel-body panel-body-padded">
 
-                                <ul class="list list-nav">
-                                    <li><h2>Section 1</h2></li>
-                                    <li><a href="#">Link 1</a></li>
-                                    <li><a href="#">Link 2</a></li>
-                                    <li><a href="#">Link 3</a></li>
+                                    <ul class="list list-nav">
+                                        <li class="list-nav-header"><h2>Section 1</h2></li>
+                                        <li><a href="#">Link 1</a></li>
+                                        <li><a href="#">Link 2</a></li>
+                                        <li><a href="#">Link 3</a></li>
 
-                                    <li><h2>Section 2</h2></li>
-                                    <li><a href="#">Link 4</a></li>
-                                    <li><a href="#">Link 5</a></li>
-                                    <li><a href="#">Link 6</a></li>
+                                        <li class="list-nav-header"><h2>Section 2</h2></li>
+                                        <li><a href="#">Link 4</a></li>
+                                        <li><a href="#">Link 5</a></li>
+                                        <li><a href="#">Link 6</a></li>
 
-                                    <li><h2>Section 3</h2></li>
-                                    <li><a href="#">Link 7</a></li>
-                                    <li><a href="#">Link 8</a></li>
-                                    <li><a href="#">Link 9</a></li>
-                                </ul>
+                                        <li class="list-nav-header"><h2>Section 3</h2></li>
+                                        <li><a href="#">Link 7</a></li>
+                                        <li><a href="#">Link 8</a></li>
+                                        <li><a href="#">Link 9</a></li>
+                                    </ul>
 
-                            </div>
-                        </section>
-                    </div>
-
-                    <!-- List view -->
-                    <div class="panel">
-                        <header>
-                            <h1>Panel Title</h1>
-                            <div class="panel-header-controls">
-                                <div class="input-group input-group-inline">
-                                    <div class="button button-icon"></div>
-                                    <div class="button button-icon"></div>
                                 </div>
-                            </div>
-                        </header>
-                        <section class="panel-content-scroll">
-                            <div class="panel-body">
+                            </section>
+                        </div>
 
-                                <ul class="list list-block">
-                                    <li>
-                                        Hello darkness my old friend.
-                                    </li>
-                                </ul>
-
-                            </div>
-                        </section>
-                    </div>
-
-                    <!-- List view -->
-                    <div class="panel">
-                        <header class="panel-header-leftalign">
-                            <h1>Panel Title</h1>
-                            <div class="panel-header-controls">
-                                <div class="input-group">
-                                    <div class="button button-icon"></div>
-                                    <div class="button button-icon"></div>
+                        <!-- List view -->
+                        <div class="panel" style="width:30%">
+                            <header>
+                                <h1>Panel Title</h1>
+                                <div class="panel-header-controls">
+                                    <div class="input-group input-group-inline">
+                                        <div class="button button-icon"></div>
+                                        <div class="button button-icon"></div>
+                                    </div>
                                 </div>
-                            </div>
-                        </header>
-                        <section class="panel-content-scroll">
-                            <div class="panel-body panel-body-padded">
+                            </header>
+                            <section class="panel-content-scroll">
+                                <div class="panel-body">
 
-                                Hello, world.
+                                    <ul class="list list-block">
+                                        <li>
+                                            Hello darkness my old friend.
+                                        </li>
+                                    </ul>
 
-                            </div>
-                        </section>
+                                </div>
+                            </section>
+                        </div>
+
+                        <!-- List view -->
+                        <div class="panel" style="width:50%">
+                            <header class="panel-header-leftalign">
+                                <h1>Panel Title</h1>
+                            </header>
+                            <section class="panel-content-scroll">
+                                <div class="panel-body panel-body-padded">
+
+                                    Hello, world.
+
+                                </div>
+                            </section>
+                        </div>
+
                     </div>
-
                 </div>
-
             </div>
         </div>
 
         <!-- Messages/Chat -->
         <div class="anchor anchor-offset-thick anchor-bottomleft">
-            <div class="anchor-content">
+            <div class="anchor-wrapper">
+                <div class="anchor-content">
 
+                </div>
             </div>
         </div>
 
         <!-- Friends list -->
         <div class="anchor anchor-offset-thick anchor-bottomright">
-            <div class="anchor-content">
+            <div class="anchor-wrapper">
+                <div class="anchor-content">
 
+                </div>
             </div>
         </div>
     </div>

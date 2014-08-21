@@ -23,9 +23,35 @@
 *------------------------------------*/
 
 .list-nav {
+    li {
+        margin-bottom: @paddingThin - 3px;
+    }
+
+    a, h2 {
+        padding: 0 @padding;
+    }
+
     a {
-        display: inline-block;
-        margin-left: @padding;
+        display: block;
+
+        padding: 3px 0;
+        padding-left: @padding + @padding;
+
+        color: @navTextColor;
+        text-decoration: none;
+
+        &:hover {
+            background-color: @navHoverColor;
+        }
+
+        &.active {
+            background-color: @navSelectedColor;
+            color: @navSelectedTextColor;
+        }
+    }
+
+    h2 {
+        color: @navHeaderColor;
     }
 
     .list-nav-header:first-child {
@@ -34,7 +60,7 @@
 }
 
 .list-nav-header {
-    margin-top: @padding;
+    margin-top: @padding + @paddingThin;
 
     h2 {
         text-transform: uppercase;

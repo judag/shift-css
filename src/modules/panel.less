@@ -4,6 +4,25 @@
 
 .panel {
     background-color: @backgroundColor;
+
+    &.panel-dimmed {
+        background-color: @wellColor;
+
+        > header {
+            box-shadow: 0 -1px 0 @borderColorDark inset;
+        }
+
+        &.panel-header-borderless,
+        &.panel-header-inline {
+            box-shadow: none;
+        }
+
+        .list-block {
+            li {
+                box-shadow: 0 -1px 0 @borderColorDark inset;
+            }
+        }
+    }
 }
 
 .panel > header {
@@ -18,7 +37,6 @@
 
     h1 {
         display: inline-block;
-        overflow: hidden;
 
         padding-right: 1px;
         height: 1em;
@@ -86,6 +104,16 @@
 }
 
 .panel-nav {
+    background-color: @navBackgroundColor;
+    color: @navTextColor;
+
+    h1 {
+        color: @navSelectedTextColor;
+    }
+
+    .panel-body {
+        padding: @padding 0;
+    }
 }
 
 

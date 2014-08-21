@@ -175,7 +175,7 @@ select {
 body {
   margin: 0;
   padding: 0;
-  background-color: #242424;
+  background-color: #1f2332;
   font-family: sans-serif;
   font-size: 13pt;
   line-height: 1.5em;
@@ -192,15 +192,22 @@ body {
 /*------------------------------------*
     Anchors
 *------------------------------------*/
+a {
+  color: #de7331;
+  text-decoration: none;
+}
+a:link,
+a:hover {
+  text-decoration: underline;
+}
+a:visited {
+  color: #bd5d22;
+}
 /*------------------------------------*
     Typography
 *------------------------------------*/
-h1 {
-  font-weight: 600;
-}
-h2 {
-  font-weight: 600;
-}
+h1,
+h2,
 h3 {
   font-weight: 600;
 }
@@ -406,16 +413,28 @@ h3 {
 .panel {
   background-color: #ffffff;
 }
+.panel.panel-dimmed {
+  background-color: #eceff3;
+}
+.panel.panel-dimmed > header {
+  box-shadow: 0 -1px 0 #cdd1d4 inset;
+}
+.panel.panel-dimmed.panel-header-borderless,
+.panel.panel-dimmed.panel-header-inline {
+  box-shadow: none;
+}
+.panel.panel-dimmed .list-block li {
+  box-shadow: 0 -1px 0 #cdd1d4 inset;
+}
 .panel > header {
   position: relative;
   padding: 0 17px;
   height: 62px;
-  box-shadow: 0 -1px 0 #cccccc inset;
+  box-shadow: 0 -1px 0 #dadee1 inset;
   line-height: 62px;
 }
 .panel > header h1 {
   display: inline-block;
-  overflow: hidden;
   padding-right: 1px;
   height: 1em;
   line-height: 1em;
@@ -458,6 +477,16 @@ h3 {
 }
 .panel-body.panel-body-padded {
   padding: 17px;
+}
+.panel-nav {
+  background-color: #3b3f53;
+  color: #afb4cc;
+}
+.panel-nav h1 {
+  color: #ffffff;
+}
+.panel-nav .panel-body {
+  padding: 17px 0;
 }
 /*------------------------------------*
     Panel Group
@@ -505,20 +534,40 @@ h3 {
 *------------------------------------*/
 .list-block li {
   padding: 17px;
-  box-shadow: 0 -1px 0 #cccccc inset;
+  box-shadow: 0 -1px 0 #dadee1 inset;
 }
 /*------------------------------------*
     Nav List
 *------------------------------------*/
+.list-nav li {
+  margin-bottom: 7px;
+}
+.list-nav a,
+.list-nav h2 {
+  padding: 0 17px;
+}
 .list-nav a {
-  display: inline-block;
-  margin-left: 17px;
+  display: block;
+  padding: 3px 0;
+  padding-left: 34px;
+  color: #afb4cc;
+  text-decoration: none;
+}
+.list-nav a:hover {
+  background-color: #35394b;
+}
+.list-nav a.active {
+  background-color: #282b3a;
+  color: #ffffff;
+}
+.list-nav h2 {
+  color: #1b1f29;
 }
 .list-nav .list-nav-header:first-child {
   margin-top: 0;
 }
 .list-nav-header {
-  margin-top: 17px;
+  margin-top: 27px;
 }
 .list-nav-header h2 {
   text-transform: uppercase;

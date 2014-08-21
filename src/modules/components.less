@@ -2,14 +2,6 @@
     Miscellaneous Components
 *------------------------------------*/
 
-.maru {
-
-}
-
-.batsu {
-
-}
-
 .inliner {
     position: relative;
     display: inline-block;
@@ -39,24 +31,18 @@
     }
 }
 
-.icon {
-    .inliner-element(@iconHeight, @iconHeight);
+.maru {
+    .inliner-element(@iconHeight);
 }
 
-.list-icon {
-    .inliner-element(@listIconHeight, @listIconHeight);
-    
+.batsu {
+    .inliner-element(@iconHeight);
+}
+
+.icon, .list-icon {
     i {
         border-radius: 50%;
         background-color: #ccc;
-    }
-
-    .badge {
-        position: absolute;
-        bottom: -2px;
-        right: -2px;
-
-        box-shadow: 0 0 0 3px @backgroundColor;
     }
 
     &.icon-positive i {
@@ -70,6 +56,110 @@
     &.icon-negative i {
         box-shadow: 0 0 0 3px @error;
     }
+}
+
+.icon {
+    .inliner-element(@iconHeight, @iconHeight);
+}
+
+.list-icon {
+    .inliner-element(@listIconHeight, @listIconHeight);
+
+    .badge {
+        position: absolute;
+        bottom: -2px;
+        right: -2px;
+
+        box-shadow: 0 0 0 3px @backgroundColor;
+    }
+}
+
+.arrow {
+    i {
+        width: 8px;
+        height: 8px;
+
+        &:before, &:after {
+            content: '';
+            display: block;
+            position: absolute;
+        }
+
+        &:before {
+            top: 0;
+            left: 0;
+            width: 8px;
+            height: 3px;
+        }
+
+        &:after {
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 8px;
+        }
+    }
+}
+
+.arrow-color(@color: @textColor) {
+    i {
+        &:before, &:after {
+            background-color: @color;
+        }
+    }
+}
+
+.arrow-top {
+    .inliner-element(@iconHeightSmall);
+    .arrow-color;
+    .arrow;
+    i {
+        transform: rotateZ(45deg);
+        margin: -2px 0 0 -4px;
+    }
+}
+
+.arrow-left {
+    .inliner-element(@iconHeightSmall);
+    .arrow-color;
+    .arrow;
+    i {
+        transform: rotateZ(-45deg);
+        margin: -3px 0 0 -3px;
+    }
+}
+
+.arrow-bottom {
+    .inliner-element(@iconHeightSmall);
+    .arrow-color;
+    .arrow;
+    i {
+        transform: rotateZ(-135deg);
+        margin: -5px 0 0 -4px;
+    }
+}
+
+.arrow-right {
+    .inliner-element(@iconHeightSmall);
+    .arrow-color;
+    .arrow;
+    i {
+        transform: rotateZ(135deg);
+        margin: -3px 0 0 -6px;
+    }
+}
+
+
+.arrow-white {
+    .arrow-color(@white);
+}
+
+.arrow-light {
+    .arrow-color(@textColorLight);
+}
+
+.arrow-dark {
+    .arrow-color(@black);
 }
 
 .subtitle {
@@ -131,8 +221,37 @@
 
 .pointer         { cursor: pointer; }
 
+.fade            { opacity: 0.35; }
+
 .no-select {
     -webkit-touch-callout: none;
     user-select: none;
     cursor: default;
+}
+
+.success {
+     color: darken(@success, 15%);
+}
+
+.success-filled {
+    color: @white;
+    background-color: @success;
+}
+
+.warning {
+    color: darken(@warning, 15%);
+}
+
+.warning-filled {
+    color: @white;
+    background-color: @warning;
+}
+
+.error {
+    color: darken(@error, 15%);
+}
+
+.error-filled {
+    color: @white;
+    background-color: @error;
 }

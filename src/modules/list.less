@@ -26,7 +26,7 @@
 
         > span {
             display: inline-block;
-            vertical-align: middle;
+            vertical-align: top;
         }
 
         &.active {
@@ -55,10 +55,16 @@
             }
         }
 
+        &.thin {
+            padding-top: @paddingThin;
+            padding-bottom: @paddingThin;
+        }
+
         .tags {
             position: absolute;
+            display: block;
 
-            height: 1.5em;
+            height: @iconHeight;
             right: @padding;
             top: 50%;
 
@@ -67,8 +73,25 @@
             word-spacing: 0.5ex;
 
             > * {
-                vertical-align: middle;
+                vertical-align: top;
             }
+
+            .badge {
+                margin-top: (@iconHeight - @iconHeightSmall) / 2;
+            }
+        }
+
+        &.dark {
+            background-color: @navHoverColor;
+            color: @navTextColor;
+            box-shadow: 0 -1px 0 @navSelectedColor inset !important;
+            strong {
+                color: @white;
+            }
+        }
+
+        strong {
+            color: @headerColor;
         }
     }
 }
@@ -108,7 +131,8 @@
     }
 
     h2 {
-        opacity: 0.35;
+        .fade;
+        color: @navTextColor;
     }
 
     .list-nav-header:first-child {

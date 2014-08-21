@@ -167,8 +167,8 @@ select {
     Colours
 *------------------------------------*/
 /*------------------------------------*
-        Heights
-    *------------------------------------*/
+    Heights
+*------------------------------------*/
 /*------------------------------------*
     Global
 *------------------------------------*/
@@ -179,6 +179,7 @@ body {
   font-family: sans-serif;
   font-size: 13pt;
   line-height: 1.5em;
+  color: #606473;
 }
 .app {
   overflow: hidden;
@@ -215,12 +216,19 @@ h3 {
       -ms-user-select: none;
           user-select: none;
   cursor: default;
+  color: #2d3140;
 }
 h1,
 h2,
 h3,
 strong {
   font-weight: 600;
+}
+small {
+  font-size: 11pt;
+}
+var {
+  font-style: normal;
 }
 /*------------------------------------*
     Miscellaneous Components
@@ -240,13 +248,46 @@ strong {
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
 }
+.maru {
+  width: 26px;
+  height: 1.5em;
+}
+.maru i {
+  width: 26px;
+  height: 1.5em;
+}
+.batsu {
+  width: 26px;
+  height: 1.5em;
+}
+.batsu i {
+  width: 26px;
+  height: 1.5em;
+}
+.icon i,
+.list-icon i {
+  border-radius: 50%;
+  background-color: #ccc;
+}
+.icon.icon-positive i,
+.list-icon.icon-positive i {
+  box-shadow: 0 0 0 3px #48cfad;
+}
+.icon.icon-neutral i,
+.list-icon.icon-neutral i {
+  box-shadow: 0 0 0 3px #ffce54;
+}
+.icon.icon-negative i,
+.list-icon.icon-negative i {
+  box-shadow: 0 0 0 3px #ed5565;
+}
 .icon {
-  width: 24px;
-  height: 24px;
+  width: 26px;
+  height: 26px;
 }
 .icon i {
-  width: 24px;
-  height: 24px;
+  width: 26px;
+  height: 26px;
 }
 .list-icon {
   width: 44px;
@@ -256,24 +297,201 @@ strong {
   width: 44px;
   height: 44px;
 }
-.list-icon i {
-  border-radius: 50%;
-  background-color: #ccc;
-}
 .list-icon .badge {
   position: absolute;
   bottom: -2px;
   right: -2px;
   box-shadow: 0 0 0 3px #ffffff;
 }
-.list-icon.icon-positive i {
-  box-shadow: 0 0 0 3px #48cfad;
+.arrow i {
+  width: 8px;
+  height: 8px;
 }
-.list-icon.icon-neutral i {
-  box-shadow: 0 0 0 3px #ffce54;
+.arrow i:before,
+.arrow i:after {
+  content: '';
+  display: block;
+  position: absolute;
 }
-.list-icon.icon-negative i {
-  box-shadow: 0 0 0 3px #ed5565;
+.arrow i:before {
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 3px;
+}
+.arrow i:after {
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 8px;
+}
+.arrow-top {
+  width: 16px;
+  height: 1.5em;
+}
+.arrow-top i {
+  width: 16px;
+  height: 1.5em;
+}
+.arrow-top i:before,
+.arrow-top i:after {
+  background-color: #606473;
+}
+.arrow-top i {
+  width: 8px;
+  height: 8px;
+}
+.arrow-top i:before,
+.arrow-top i:after {
+  content: '';
+  display: block;
+  position: absolute;
+}
+.arrow-top i:before {
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 3px;
+}
+.arrow-top i:after {
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 8px;
+}
+.arrow-top i {
+  -webkit-transform: rotateZ(45deg);
+          transform: rotateZ(45deg);
+  margin: -2px 0 0 -4px;
+}
+.arrow-left {
+  width: 16px;
+  height: 1.5em;
+}
+.arrow-left i {
+  width: 16px;
+  height: 1.5em;
+}
+.arrow-left i:before,
+.arrow-left i:after {
+  background-color: #606473;
+}
+.arrow-left i {
+  width: 8px;
+  height: 8px;
+}
+.arrow-left i:before,
+.arrow-left i:after {
+  content: '';
+  display: block;
+  position: absolute;
+}
+.arrow-left i:before {
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 3px;
+}
+.arrow-left i:after {
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 8px;
+}
+.arrow-left i {
+  -webkit-transform: rotateZ(-45deg);
+          transform: rotateZ(-45deg);
+  margin: -3px 0 0 -3px;
+}
+.arrow-bottom {
+  width: 16px;
+  height: 1.5em;
+}
+.arrow-bottom i {
+  width: 16px;
+  height: 1.5em;
+}
+.arrow-bottom i:before,
+.arrow-bottom i:after {
+  background-color: #606473;
+}
+.arrow-bottom i {
+  width: 8px;
+  height: 8px;
+}
+.arrow-bottom i:before,
+.arrow-bottom i:after {
+  content: '';
+  display: block;
+  position: absolute;
+}
+.arrow-bottom i:before {
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 3px;
+}
+.arrow-bottom i:after {
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 8px;
+}
+.arrow-bottom i {
+  -webkit-transform: rotateZ(-135deg);
+          transform: rotateZ(-135deg);
+  margin: -5px 0 0 -4px;
+}
+.arrow-right {
+  width: 16px;
+  height: 1.5em;
+}
+.arrow-right i {
+  width: 16px;
+  height: 1.5em;
+}
+.arrow-right i:before,
+.arrow-right i:after {
+  background-color: #606473;
+}
+.arrow-right i {
+  width: 8px;
+  height: 8px;
+}
+.arrow-right i:before,
+.arrow-right i:after {
+  content: '';
+  display: block;
+  position: absolute;
+}
+.arrow-right i:before {
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 3px;
+}
+.arrow-right i:after {
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 8px;
+}
+.arrow-right i {
+  -webkit-transform: rotateZ(135deg);
+          transform: rotateZ(135deg);
+  margin: -3px 0 0 -6px;
+}
+.arrow-white i:before,
+.arrow-white i:after {
+  background-color: #ffffff;
+}
+.arrow-light i:before,
+.arrow-light i:after {
+  background-color: #919699;
+}
+.arrow-dark i:before,
+.arrow-dark i:after {
+  background-color: #1b1f29;
 }
 .subtitle {
   color: #919699;
@@ -281,10 +499,10 @@ strong {
 .tag {
   display: inline-block;
   padding: 0 7px;
-  height: 24px;
+  height: 26px;
   border-radius: 3px;
   background-color: #cdd1d4;
-  line-height: 24px;
+  line-height: 26px;
   font-weight: 900;
   font-size: 11pt;
   text-transform: uppercase;
@@ -338,6 +556,9 @@ strong {
 .pointer {
   cursor: pointer;
 }
+.fade {
+  opacity: 0.35;
+}
 .no-select {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -345,6 +566,27 @@ strong {
       -ms-user-select: none;
           user-select: none;
   cursor: default;
+}
+.success {
+  color: #2aa083;
+}
+.success-filled {
+  color: #ffffff;
+  background-color: #48cfad;
+}
+.warning {
+  color: #ffb807;
+}
+.warning-filled {
+  color: #ffffff;
+  background-color: #ffce54;
+}
+.error {
+  color: #de182c;
+}
+.error-filled {
+  color: #ffffff;
+  background-color: #ed5565;
 }
 /*------------------------------------*
     Anchor
@@ -543,6 +785,7 @@ strong {
     Panel
 *------------------------------------*/
 .panel {
+  position: relative;
   background-color: #ffffff;
 }
 .panel.panel-dimmed {
@@ -610,6 +853,11 @@ strong {
 }
 .panel > section.panel-content-scroll {
   overflow-y: auto;
+  position: absolute;
+  top: 62px;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }
 .panel-body.panel-body-padded {
   padding: 17px;
@@ -687,7 +935,7 @@ strong {
 }
 .list-block li > span {
   display: inline-block;
-  vertical-align: middle;
+  vertical-align: top;
 }
 .list-block li.active {
   background-color: #dadde0;
@@ -708,9 +956,14 @@ strong {
 .list-block li.disabled > * {
   opacity: 0.35;
 }
+.list-block li.thin {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
 .list-block li .tags {
   position: absolute;
-  height: 1.5em;
+  display: block;
+  height: 26px;
   right: 17px;
   top: 50%;
   -webkit-transform: translateY(-50%);
@@ -718,7 +971,21 @@ strong {
   word-spacing: 0.5ex;
 }
 .list-block li .tags > * {
-  vertical-align: middle;
+  vertical-align: top;
+}
+.list-block li .tags .badge {
+  margin-top: 5px;
+}
+.list-block li.dark {
+  background-color: #35394b;
+  color: #afb4cc;
+  box-shadow: 0 -1px 0 #282b3a inset !important;
+}
+.list-block li.dark strong {
+  color: #ffffff;
+}
+.list-block li strong {
+  color: #2d3140;
 }
 /*------------------------------------*
     Nav List
@@ -752,6 +1019,7 @@ strong {
 }
 .list-nav h2 {
   opacity: 0.35;
+  color: #afb4cc;
 }
 .list-nav .list-nav-header:first-child {
   margin-top: 0;

@@ -3,6 +3,7 @@
 *------------------------------------*/
 
 .panel {
+    position: relative;
     background-color: @backgroundColor;
 
     &.panel-dimmed {
@@ -93,10 +94,13 @@
 }
 
 .panel > section {
-
-
     &.panel-content-scroll {
         overflow-y: auto;
+        position: absolute;
+        top: @headerHeight;
+        left: 0;
+        bottom: 0;
+        right: 0;
     }
 }
 

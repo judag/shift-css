@@ -11,35 +11,15 @@ module.exports = function(grunt) {
             '* Copyright (c) <%= grunt.template.today("yyyy") %> Jordan Ranson;' +
             ' Licensed under the Apache2 license */\n',
         // Task configuration.
-        concat: {
-            options: {
-                banner: '<%= banner %>',
-                stripBanners: true
-            },
+        less: {
             dist: {
-                src: ['src/css-swish.js'],
-                dest: 'dist/css-swish.js'
-            },
-            jquery: {
-                src: ['src/css-swish.js', 'src/jquery.css-swish.js'],
-                dest: 'dist/jquery.css-swish.js'
-            },
-            css: {
-                src: ['src/css-swish-transitions.css'],
-                dest: 'dist/css-swish-transitions.css'
-            }
-        },
-        uglify: {
-            options: {
-                banner: '<%= banner %>'
-            },
-            native: {
-                src: 'dist/css-swish.js',
-                dest: 'dist/css-swish.min.js'
-            },
-            jquery: {
-                src: 'dist/jquery.css-swish.js',
-                dest: 'dist/jquery.css-swish.min.js'
+                options: {
+                    banner: '<%= banner %>',
+                    paths: ["src"]
+                },
+                files: {
+                    "dist/shift.css": "src/master.less"
+                }
             }
         },
         autoprefixer: {
@@ -48,71 +28,33 @@ module.exports = function(grunt) {
             },
             dist: {
                 files: {
-                    'dist/css-swish-transitions.css': ['dist/css-swish-transitions.css']
+                    'dist/shift.css': ['dist/shift.css']
                 }
             }
         },
         cssmin: {
-            options: {
-                banner: '<%= banner %>'
-            },
             dist: {
                 files: {
-                    'dist/css-swish-transitions.min.css': ['dist/css-swish-transitions.css']
+                    'dist/shift.min.css': ['dist/shift.css']
                 }
-            }
-        },
-        compress: {
-            javascript: {
-                options: {
-                    archive: 'demo/css-swish-js.zip'
-                },
-                files: [
-                    {
-                        src: [
-                            'dist/css-swish.js',
-                            'dist/css-swish.min.js',
-                            'dist/css-swish-transitions.css',
-                            'dist/css-swish-transitions.min.css'
-                        ],
-                        filter: 'isFile'
-                    }
-                ]
-            },
-            jquery: {
-                options: {
-                    archive: 'demo/css-swish-jquery.zip'
-                },
-                files: [
-                    {
-                        src: [
-                            'dist/jquery.css-swish.js',
-                            'dist/jquery.css-swish.min.js',
-                            'dist/css-swish-transitions.css',
-                            'dist/css-swish-transitions.min.css'
-                        ],
-                        filter: 'isFile'
-                    }
-                ]
             }
         },
         watch: {
             gruntfile: {
-                files: '<%= jshint.gruntfile.src %>',
-                tasks: ['jshint:gruntfile']
+                files: ['src/*.less','src/**/*.less'],
+                tasks: ['default']
             }
         }
     });
 
     // These plugins provide necessary tasks.
-    grunt.loadNpmTasks('grunt-contrib-concat');
-    grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-autoprefixer');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
-    grunt.loadNpmTasks('grunt-contrib-compress');
+    grunt.loadNpmTasks('grunt-contrib-watch');
 
     // Default task.
-    grunt.registerTask('default', ['concat', 'uglify', 'autoprefixer', 'cssmin', 'compress']);
+    grunt.registerTask('default', ['less', 'autoprefixer', 'cssmin']);
+    grunt.registerTask('watch', ['watch']);
 
 };

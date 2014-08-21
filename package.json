@@ -1,12 +1,13 @@
 {
-  "name": "css-swish",
+  "name": "shift-css",
   "version": "0.0.1",
-  "description": "A lightweight JavaScript library for animating elements using pre-defined CSS transitions. Includes jQuery plugin.",
+  "description": "As in \"shift the weight\" because I hate writing CSS. A slim CSS framework for web apps.",
   "main": "Gruntfile.js",
   "devDependencies": {
     "grunt": "~0.4.5",
     "grunt-contrib-concat": "~0.4.0",
     "grunt-contrib-cssmin": "~0.10.0",
+    "grunt-contrib-less": "^0.11.4",
     "grunt-contrib-uglify": "~0.5.1",
     "grunt-contrib-watch": "~0.6.1",
     "grunt-autoprefixer": "~1.0.0",
@@ -17,12 +18,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jordanranson/css-swish.git"
+    "url": "https://github.com/jordanranson/shift-css.git"
   },
   "author": "Jordan Ranson",
   "license": "Apache2",
   "bugs": {
-    "url": "https://github.com/jordanranson/css-swish/issues"
+    "url": "https://github.com/jordanranson/cshift-css/issues"
   },
-  "homepage": "https://github.com/jordanranson/css-swish"
+  "homepage": "https://github.com/jordanranson/shift-css"
 }

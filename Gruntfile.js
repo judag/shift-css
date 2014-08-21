@@ -55,6 +55,6 @@ module.exports = function(grunt) {
 
     // Default task.
     grunt.registerTask('default', ['less', 'autoprefixer', 'cssmin']);
-    grunt.registerTask('watch', ['watch']);
+    grunt.registerTask('spy', ['watch']);
 
 };

@@ -196,12 +196,10 @@ body {
     Typography
 *------------------------------------*/
 h1 {
-  font-weight: 700;
-  letter-spacing: -1px;
+  font-weight: 600;
 }
 h2 {
-  font-weight: 700;
-  letter-spacing: -1px;
+  font-weight: 600;
 }
 h3 {
   font-weight: 600;
@@ -461,9 +459,6 @@ h3 {
 .panel-body.panel-body-padded {
   padding: 17px;
 }
-.panel-nav .panel-body.panel-body-padded {
-  padding-top: 0;
-}
 /*------------------------------------*
     Panel Group
 *------------------------------------*/
@@ -508,6 +503,10 @@ h3 {
 /*------------------------------------*
     Block List
 *------------------------------------*/
+.list-block li {
+  padding: 17px;
+  box-shadow: 0 -1px 0 #cccccc inset;
+}
 /*------------------------------------*
     Nav List
 *------------------------------------*/
@@ -520,6 +519,11 @@ h3 {
 }
 .list-nav-header {
   margin-top: 17px;
+}
+.list-nav-header h2 {
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 9pt;
 }
 /*------------------------------------*
     Table

@@ -18,16 +18,16 @@
 .list-block {
     li {
         position: relative;
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        align-content: center;
+        justify-content: flex-start;
 
         padding: @padding;
 
         box-shadow: 0 -1px 0 @borderColor inset;
         .no-select;
-
-        > span {
-            display: inline-block;
-            vertical-align: top;
-        }
 
         &.active {
             background-color: @wellColorDark;
@@ -61,23 +61,19 @@
         }
 
         .tags {
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: center;
+            align-content: center;
+            justify-content: flex-start;
             position: absolute;
-            display: block;
 
-            height: @iconHeight;
+            top: 0;
             right: @padding;
-            top: 50%;
-
-            transform: translateY(-50%);
-
-            word-spacing: 0.5ex;
+            height: 100%;
 
             > * {
-                vertical-align: top;
-            }
-
-            .badge {
-                margin-top: (@iconHeight - @iconHeightSmall) / 2;
+                margin-left: 5px;
             }
         }
 

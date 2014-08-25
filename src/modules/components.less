@@ -215,13 +215,11 @@
 .push-bottom     { margin-top: @paddingThin; }
 .push-far-bottom { margin-top: @padding; }
 
-.short-line      { line-height: 1.3em; }
-
-.click-through   { pointer-events: none; }
-
-.pointer         { cursor: pointer; }
-
-.fade            { opacity: 0.35; }
+.short-line      { line-height: 1.3em   !important; }
+.click-through   { pointer-events: none !important; }
+.pointer         { cursor: pointer      !important; }
+.fade            { opacity: 0.35        !important; }
+.last            { margin-bottom: 0     !important; }
 
 .no-select {
     -webkit-touch-callout: none;
@@ -254,4 +252,28 @@
 .error-filled {
     color: @white;
     background-color: @error;
+}
+
+
+/*------------------------------------*
+    Content Groups
+*------------------------------------*/
+
+.group {
+    margin-bottom: @padding;
+
+    h2 {
+        margin-top: @paddingThick;
+    }
+
+    h1 + h2 {
+        margin-top: 0;
+    }
+    p + hr {
+        padding-top: @padding * 1.25;
+    }
+
+    + .group {
+        margin-top: @paddingThick;
+    }
 }

@@ -44,6 +44,7 @@
         display: inline-block;
 
         margin-top: -4px;
+        margin-bottom: 0;
         padding-right: 1px;
         height: 1em;
 
@@ -112,14 +113,17 @@
     }
 }
 
-.panel-nav {
+.panel-nav, .panel-dark {
     background-color: @navBackgroundColor;
     color: @navTextColor;
+    box-shadow: none !important;
 
     h1 {
         color: @navSelectedTextColor;
     }
+}
 
+.panel-nav {
     .panel-body {
         padding: @padding 0;
     }

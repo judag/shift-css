@@ -3,10 +3,18 @@
 *------------------------------------*/
 
 .grid {
-
+    clear: both;
+    box-sizing: border-box;
+    width: 100%;
 }
 
 .row {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    align-content: stretch;
+    justify-content: flex-start;
+
     margin-bottom: @padding;
 
     &.row-margin-thick {
@@ -15,7 +23,7 @@
 }
 
 .col {
-
+    width: 100%;
 }
 
 // Eights

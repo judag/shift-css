@@ -1,3 +1,21 @@
-body {
+body,
+input[type="text"],
+input[type="password"],
+input[type="submit"],
+input[type="radio"],
+input[type="checkbox"],
+input[type="number"],
+input[type="file"],
+select,
+button {
     font-family: 'Source Sans Pro', sans-serif;
+ }
+
+.grid-test .col {
+    text-align: center;
+    background: #e1e1e1;
+}
+
+.grid-test .col:nth-child(2n) {
+    background: #c1c1c1;
 }

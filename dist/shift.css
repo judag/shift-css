@@ -1,4 +1,4 @@
-/*! shift-css - v0.0.1 - 2014-08-22
+/*! shift-css - v0.0.1 - 2014-08-24
 * https://github.com/jordanranson/shift-css
 * Copyright (c) 2014 Jordan Ranson; Licensed under the Apache2 license */
 /*------------------------------------*
@@ -228,6 +228,21 @@ small {
   font-size: 11pt;
 }
 var {
+  font-style: normal;
+}
+h1 {
+  margin-bottom: 17px;
+  font-size: 15pt;
+}
+h2 {
+  margin-bottom: 17px;
+}
+hr {
+  margin: 17px 0;
+  border-top-color: #eceff3;
+}
+i {
+  font-weight: lighter;
   font-style: normal;
 }
 /*------------------------------------*
@@ -548,16 +563,19 @@ var {
   margin-top: 17px;
 }
 .short-line {
-  line-height: 1.3em;
+  line-height: 1.3em   !important;
 }
 .click-through {
-  pointer-events: none;
+  pointer-events: none !important;
 }
 .pointer {
-  cursor: pointer;
+  cursor: pointer      !important;
 }
 .fade {
-  opacity: 0.35;
+  opacity: 0.35        !important;
+}
+.last {
+  margin-bottom: 0     !important;
 }
 .no-select {
   -webkit-touch-callout: none;
@@ -588,6 +606,51 @@ var {
   color: #ffffff;
   background-color: #ed5565;
 }
+/*------------------------------------*
+    Content Groups
+*------------------------------------*/
+.group {
+  margin-bottom: 17px;
+}
+.group h2 {
+  margin-top: 34px;
+}
+.group h1 + h2 {
+  margin-top: 0;
+}
+.group p + hr {
+  padding-top: 21.25px;
+}
+.group + .group {
+  margin-top: 34px;
+}
+/*------------------------------------*
+    Global Input Styles
+*------------------------------------*/
+input[type="text"],
+input[type="password"],
+input[type="submit"],
+input[type="radio"],
+input[type="checkbox"],
+input[type="number"],
+input[type="file"],
+select,
+button {
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: transparent;
+  color: #606473;
+  line-height: 1.5em;
+  font-size: 13pt;
+  font-family: sans-serif;
+  vertical-align: baseline;
+}
+/*------------------------------------*
+    Buttons
+*------------------------------------*/
 /*------------------------------------*
     Anchor
 *------------------------------------*/
@@ -717,11 +780,37 @@ var {
 /*------------------------------------*
     Responsive Grid
 *------------------------------------*/
+.grid {
+  clear: both;
+  box-sizing: border-box;
+  width: 100%;
+}
 .row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: nowrap;
+      -ms-flex-wrap: nowrap;
+          flex-wrap: nowrap;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-align-content: stretch;
+      -ms-flex-line-pack: stretch;
+          align-content: stretch;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   margin-bottom: 17px;
 }
 .row.row-margin-thick {
   margin-bottom: 34px;
+}
+.col {
+  width: 100%;
 }
 .col-1-8 {
   width: 12.5%;
@@ -814,6 +903,7 @@ var {
 .panel > header h1 {
   display: inline-block;
   margin-top: -4px;
+  margin-bottom: 0;
   padding-right: 1px;
   height: 1em;
   line-height: 1em;
@@ -862,11 +952,14 @@ var {
 .panel-body.panel-body-padded {
   padding: 17px;
 }
-.panel-nav {
+.panel-nav,
+.panel-dark {
   background-color: #3b3f53;
   color: #afb4cc;
+  box-shadow: none !important;
 }
-.panel-nav h1 {
+.panel-nav h1,
+.panel-dark h1 {
   color: #ffffff;
 }
 .panel-nav .panel-body {
@@ -1043,7 +1136,7 @@ var {
   color: #ffffff;
 }
 .list-nav h2 {
-  opacity: 0.35;
+  opacity: 0.35        !important;
   color: #afb4cc;
 }
 .list-nav .list-nav-header:first-child {

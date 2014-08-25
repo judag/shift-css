@@ -9,6 +9,7 @@ input[type="radio"],
 input[type="checkbox"],
 input[type="number"],
 input[type="file"],
+textarea,
 select,
 button {
     display: inline-block;
@@ -18,7 +19,8 @@ button {
     margin: 0;
 
     border: none;
-    background: transparent;
+    background-color: transparent;
+    -webkit-appearance: none;
 
     color: @textColor;
     line-height: 1.5em;
@@ -32,6 +34,225 @@ button {
     Buttons
 *------------------------------------*/
 
-.button {
+.activeInputOverlay {
+    &:after {
+        content: '';
+        display: block;
+        position: absolute;
 
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+        .click-through;
+
+        box-shadow: 0 0 3px 1px @primaryColorLight;
+    }
+}
+
+.button {
+    position: relative;
+    padding: 0 @paddingThin;
+    height: @inputHeight;
+
+    background-color: @borderColorLight;
+    box-shadow: 0 0 0 1px darken(@borderColorLight, 5%) inset;
+    cursor: pointer;
+    outline: none;
+
+    line-height: @inputHeight;
+    font-weight: 600;
+
+    &:active {
+        .activeInputOverlay;
+    }
+
+    &.dark {
+        background-color: @borderColor;
+        box-shadow: none;
+
+        color: @white;
+    }
+
+    &.primary, &.active {
+        box-shadow: none;
+        background-color: @primaryColor;
+
+        color: @white;
+    }
+
+    &.active {
+        cursor: default;
+    }
+
+    &.dangerous {
+        box-shadow: none;
+        background-color: @error;
+
+        color: @white;
+
+        &:active {
+            &:after {
+                box-shadow: 0 0 3px 1px lighten(@error, 15%);
+            }
+        }
+    }
+
+    &.button-icon {
+        padding: 0 !important;
+        width: @inputHeight;
+    }
+
+    &.small {
+        padding: 0 @paddingThin*0.8;
+        height: @iconHeight;
+
+        font-size: @fontSizeSmall;
+        line-height: @iconHeight;
+
+        &.button-icon {
+            width: @iconHeight;
+        }
+    }
+
+    &.large {
+        padding: 0 @padding;
+        height: @listIconHeight;
+
+        font-size: @fontSizeHeader;
+        line-height: @listIconHeight;
+
+        &.button-icon {
+            width: @listIconHeight;
+        }
+    }
+
+    &.disabled, &[disabled] {
+        background-color: transparent;
+        box-shadow: 0 0 0 1px @borderColorLight inset;
+        cursor: default;
+
+        color: @borderColor;
+
+        &:active {
+            &:after {
+                box-shadow: 0 0 3px 1px @borderColorLight;
+            }
+        }
+    }
+}
+
+
+/*------------------------------------*
+    Text input
+*------------------------------------*/
+
+.text {
+    position: relative;
+    height: @inputHeight;
+    width: 12em;
+
+    box-shadow: 0 0 0 1px darken(@borderColorLight, 5%) inset;
+    outline: none;
+
+    &:focus {
+        box-shadow: 0 0 0 1px @primaryColorLight inset;
+    }
+
+    &::-webkit-input-placeholder,
+    &:-moz-placeholder,
+    &::-moz-placeholder,
+    &:-ms-input-placeholder {
+        color: @textColorLight;
+    }
+
+    &.wide {
+        width: 100%;
+    }
+
+    &.short {
+        width: 6em;
+    }
+
+    &.digit {
+        width: 3em;
+        text-align: center;
+    }
+
+    &.small {
+        padding: 0 @paddingThin*0.8;
+        height: @iconHeight;
+
+        font-size: @fontSizeSmall;
+        line-height: @iconHeight;
+    }
+
+    &.large {
+        padding: 0 @padding;
+        height: @listIconHeight;
+
+        font-size: @fontSizeHeader;
+        line-height: @listIconHeight;
+    }
+
+    &.code {
+        font-family: monospace;
+        background: @borderColorLight;
+        box-shadow: 0 0 0 1px @borderColor inset;
+    }
+
+    &.disabled, &[disabled] {
+        background-color: transparent;
+        box-shadow: 0 0 0 1px @borderColorLight inset;
+        cursor: default;
+
+        color: @borderColor;
+
+        &:focus {
+            &:after {
+                box-shadow: 0 0 3px 1px @borderColorLight;
+            }
+        }
+    }
+}
+
+input.text {
+    padding: 0 @paddingThin;
+    line-height: 1.5em;
+}
+
+textarea.text {
+    padding: @paddingThin;
+    min-height: 3.5em;
+
+    line-height: 1.25em;
+}
+
+
+/*------------------------------------*
+    Input Groups
+*------------------------------------*/
+
+.input-group {
+
+}
+
+.input-group-inline {
+    input[type="text"],
+    input[type="password"],
+    input[type="submit"],
+    input[type="radio"],
+    input[type="checkbox"],
+    input[type="number"],
+    input[type="file"],
+    textarea,
+    select,
+    button,
+    .button,
+    .text {
+        display: block;
+        float: left;
+        margin-left: @paddingThin;
+    }
 }

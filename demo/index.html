@@ -15,20 +15,7 @@
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
     <script>
-        var $links = $('#links');
-        var source = 'dircontents.php';
-        $.ajax({
-            url: source,
-            success: function(data) {
-                var imgUrl, $a;
-                for(var i = 0; i < data.length; i++) {
-                    imgUrl = data[i];
-                    $a = $('<a>');
-                    $a.attr('href', imgUrl);
-                    $a.appendTo($links);
-                }
-            }
-        );
+
     </script>
 </head>
 <body>
@@ -103,8 +90,8 @@
                                 <h1>Panel Title</h1>
                                 <div class="panel-header-controls">
                                     <div class="input-group input-group-inline">
-                                        <div class="button button-icon"></div>
-                                        <div class="button button-icon"></div>
+                                        <div class="button button-icon dark"></div>
+                                        <div class="button button-icon dark"></div>
                                     </div>
                                 </div>
                             </header>
@@ -223,23 +210,43 @@
                                         <p class="row">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                                     </div>
 
-                                    <div class="group">
-                                        <h1>Inputs <i>&amp;</i> Form Controls</h1>
+                                    <div class="group form-controls">
+                                        <h1>Buttons</h1>
 
                                         <div class="row">
-                                            <input type="submit" class="button primary" value="Primary">
-                                            <br>
-                                            <input type="submit" class="button" value="Default">
-                                            <br>
-                                            <input type="submit" class="button disabled" value="Disabled">
-                                            <br>
-                                            <input type="submit" class="button dangerous" value="Dangerous">
-                                            <br>
-                                            <input type="submit" class="button large" value="Large">
-                                            <br>
-                                            <input type="submit" class="button icon" value="">
-                                            <br>
-                                            <input type="submit" class="button small" value="Small">
+                                            <div class="col">
+                                                <button class="button primary">Primary</button>
+                                                <br>
+                                                <button class="button">Default</button>
+                                                <br>
+                                                <button class="button" disabled>Disabled</button>
+                                                <br>
+                                                <button class="button dangerous">Dangerous</button>
+                                                <br>
+                                                <button class="button small">Small</button>
+                                                <br>
+                                                <button class="button button-icon"><i class="icon"></i></button>
+                                                <br>
+                                                <button class="button large">Large</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="group form-controls">
+                                        <h1>Text Input</h1>
+
+                                        <div class="row">
+                                            <div class="col">
+                                                <input type="text" class="text" placeholder="Normal text input"><br>
+                                                <input type="text" class="text" disabled value="Disabled text input"><br>
+                                                <input type="text" class="text wide" placeholder="Full width text input"><br>
+                                                <input type="text" class="text short" placeholder="Short text"><br>
+                                                <input type="text" class="text digit" placeholder="999"><br>
+                                                <input type="text" class="text small" placeholder="Small text input"><br>
+                                                <input type="text" class="text large" placeholder="Large text input"><br>
+                                                <input type="text" class="text code" value="<code>text input</code>"><br>
+                                                <textarea class="text">Text area lorem ipsum dolor sit amet.</textarea>
+                                            </div>
                                         </div>
                                     </div>
 

@@ -1,4 +1,4 @@
-/*! shift-css - v0.0.1 - 2014-08-24
+/*! shift-css - v0.0.1 - 2014-08-25
 * https://github.com/jordanranson/shift-css
 * Copyright (c) 2014 Jordan Ranson; Licensed under the Apache2 license */
 /*------------------------------------*
@@ -240,10 +240,6 @@ h2 {
 hr {
   margin: 17px 0;
   border-top-color: #eceff3;
-}
-i {
-  font-weight: lighter;
-  font-style: normal;
 }
 /*------------------------------------*
     Miscellaneous Components
@@ -634,6 +630,7 @@ input[type="radio"],
 input[type="checkbox"],
 input[type="number"],
 input[type="file"],
+textarea,
 select,
 button {
   display: inline-block;
@@ -641,7 +638,8 @@ button {
   padding: 0;
   margin: 0;
   border: none;
-  background: transparent;
+  background-color: transparent;
+  -webkit-appearance: none;
   color: #606473;
   line-height: 1.5em;
   font-size: 13pt;
@@ -651,6 +649,179 @@ button {
 /*------------------------------------*
     Buttons
 *------------------------------------*/
+.activeInputOverlay:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none !important;
+  box-shadow: 0 0 3px 1px #63cdeb;
+}
+.button {
+  position: relative;
+  padding: 0 10px;
+  height: 32px;
+  background-color: #eceff3;
+  box-shadow: 0 0 0 1px #dce2e9 inset;
+  cursor: pointer;
+  outline: none;
+  line-height: 32px;
+  font-weight: 600;
+}
+.button:active:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none !important;
+  box-shadow: 0 0 3px 1px #63cdeb;
+}
+.button.dark {
+  background-color: #dadee1;
+  box-shadow: none;
+  color: #ffffff;
+}
+.button.primary,
+.button.active {
+  box-shadow: none;
+  background-color: #40b1d0;
+  color: #ffffff;
+}
+.button.active {
+  cursor: default;
+}
+.button.dangerous {
+  box-shadow: none;
+  background-color: #ed5565;
+  color: #ffffff;
+}
+.button.dangerous:active:after {
+  box-shadow: 0 0 3px 1px #f49aa4;
+}
+.button.button-icon {
+  padding: 0 !important;
+  width: 32px;
+}
+.button.small {
+  padding: 0 8px;
+  height: 26px;
+  font-size: 11pt;
+  line-height: 26px;
+}
+.button.small.button-icon {
+  width: 26px;
+}
+.button.large {
+  padding: 0 17px;
+  height: 44px;
+  font-size: 15pt;
+  line-height: 44px;
+}
+.button.large.button-icon {
+  width: 44px;
+}
+.button.disabled,
+.button[disabled] {
+  background-color: transparent;
+  box-shadow: 0 0 0 1px #eceff3 inset;
+  cursor: default;
+  color: #dadee1;
+}
+.button.disabled:active:after,
+.button[disabled]:active:after {
+  box-shadow: 0 0 3px 1px #eceff3;
+}
+/*------------------------------------*
+    Text input
+*------------------------------------*/
+.text {
+  position: relative;
+  height: 32px;
+  width: 12em;
+  box-shadow: 0 0 0 1px #dce2e9 inset;
+  outline: none;
+}
+.text:focus {
+  box-shadow: 0 0 0 1px #63cdeb inset;
+}
+.text::-webkit-input-placeholder,
+.text:-moz-placeholder,
+.text::-moz-placeholder,
+.text:-ms-input-placeholder {
+  color: #919699;
+}
+.text.wide {
+  width: 100%;
+}
+.text.short {
+  width: 6em;
+}
+.text.digit {
+  width: 3em;
+  text-align: center;
+}
+.text.small {
+  padding: 0 8px;
+  height: 26px;
+  font-size: 11pt;
+  line-height: 26px;
+}
+.text.large {
+  padding: 0 17px;
+  height: 44px;
+  font-size: 15pt;
+  line-height: 44px;
+}
+.text.code {
+  font-family: monospace;
+  background: #eceff3;
+  box-shadow: 0 0 0 1px #dadee1 inset;
+}
+.text.disabled,
+.text[disabled] {
+  background-color: transparent;
+  box-shadow: 0 0 0 1px #eceff3 inset;
+  cursor: default;
+  color: #dadee1;
+}
+.text.disabled:focus:after,
+.text[disabled]:focus:after {
+  box-shadow: 0 0 3px 1px #eceff3;
+}
+input.text {
+  padding: 0 10px;
+  line-height: 1.5em;
+}
+textarea.text {
+  padding: 10px;
+  min-height: 3.5em;
+  line-height: 1.25em;
+}
+/*------------------------------------*
+    Input Groups
+*------------------------------------*/
+.input-group-inline input[type="text"],
+.input-group-inline input[type="password"],
+.input-group-inline input[type="submit"],
+.input-group-inline input[type="radio"],
+.input-group-inline input[type="checkbox"],
+.input-group-inline input[type="number"],
+.input-group-inline input[type="file"],
+.input-group-inline textarea,
+.input-group-inline select,
+.input-group-inline button,
+.input-group-inline .button,
+.input-group-inline .text {
+  display: block;
+  float: left;
+  margin-left: 10px;
+}
 /*------------------------------------*
     Anchor
 *------------------------------------*/
@@ -785,7 +956,10 @@ button {
   box-sizing: border-box;
   width: 100%;
 }
-.row {
+p.row {
+  margin-bottom: 17px;
+}
+div.row {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -805,9 +979,6 @@ button {
       -ms-flex-pack: start;
           justify-content: flex-start;
   margin-bottom: 17px;
-}
-.row.row-margin-thick {
-  margin-bottom: 34px;
 }
 .col {
   width: 100%;

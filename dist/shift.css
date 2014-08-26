@@ -1,4 +1,4 @@
-/*! shift-css - v0.0.1 - 2014-08-25
+/*! shift-css - v0.0.1 - 2014-08-26
 * https://github.com/jordanranson/shift-css
 * Copyright (c) 2014 Jordan Ranson; Licensed under the Apache2 license */
 /*------------------------------------*
@@ -632,6 +632,42 @@ label.label {
 /*------------------------------------*
     Progress Bar
 *------------------------------------*/
+.progress-bar {
+  position: relative;
+  content: '';
+  display: block;
+  width: 12em;
+  height: 16px;
+  box-shadow: 0 0 0 1px #dce2e9 inset;
+  background-color: #eceff3;
+  line-height: 32px;
+}
+.progress-bar i {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 16px;
+  background-color: #40b1d0;
+}
+.progress-bar.progress-bar-small {
+  height: 6px;
+  line-height: 6px;
+}
+.progress-bar.progress-bar-small i {
+  height: 6px;
+  line-height: 6px;
+}
+.progress-bar.progress-bar-large {
+  height: 26px;
+  line-height: 26px;
+}
+.progress-bar.progress-bar-large i {
+  height: 26px;
+  line-height: 26px;
+}
+.progress-bar.progress-bar-wide {
+  width: 100%;
+}
 /*------------------------------------*
     Tables
 *------------------------------------*/
@@ -1122,17 +1158,84 @@ input.toggle:disabled ~ label.label {
 /*------------------------------------*
     Slider
 *------------------------------------*/
+.slider {
+  position: relative;
+  height: 32px;
+  width: 12em;
+}
+.slider i {
+  position: absolute;
+  top: 8px;
+  left: 0;
+  height: 16px;
+  background-color: #40b1d0;
+  z-index: 2;
+}
+.slider i:before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: -8px;
+  right: 0;
+  margin-right: -8px;
+  width: 16px;
+  height: 32px;
+  box-shadow: 0 0 0 1px #dce2e9 inset;
+  background-color: #eceff3;
+  z-index: 3;
+}
+.slider:before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 8px;
+  left: 0;
+  width: 100%;
+  height: 16px;
+  box-shadow: 0 0 0 1px #dce2e9 inset;
+  background-color: #eceff3;
+  z-index: 1;
+}
+.slider.slider-small {
+  height: 26px;
+}
+.slider.slider-small:before {
+  top: 10px;
+  height: 6px;
+}
+.slider.slider-small i {
+  top: 10px;
+  height: 6px;
+}
+.slider.slider-small i:before {
+  top: -5px;
+  height: 16px;
+  margin-right: -5px;
+  width: 10px;
+}
+.slider.slider-large {
+  height: 44px;
+}
+.slider.slider-large:before {
+  top: 9px;
+  height: 26px;
+}
+.slider.slider-large i {
+  top: 9px;
+  height: 26px;
+}
+.slider.slider-large i:before {
+  top: -9px;
+  height: 44px;
+  margin-right: -17px;
+  width: 26px;
+}
+.slider.slider-wide {
+  width: 100%;
+}
 /*------------------------------------*
     Input Groups
 *------------------------------------*/
-.input-group {
-  height: 32px;
-  line-height: 32px;
-}
-.input-group.input-group-thin {
-  height: 26px;
-  line-height: 26px;
-}
 .input-group-inline input[type="text"],
 .input-group-inline input[type="password"],
 .input-group-inline input[type="submit"],

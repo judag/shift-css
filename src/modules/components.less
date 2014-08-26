@@ -296,9 +296,55 @@ label.label {
     Progress Bar
 *------------------------------------*/
 
+.progress-bar {
+    position: relative;
 
+    content: '';
+    display: block;
+
+    width: 12em;
+    height: @iconHeightSmall;
+
+    box-shadow: 0 0 0 1px darken(@borderColorLight, 5%) inset;
+    background-color: @borderColorLight;
+
+    line-height: @inputHeight;
+
+    i {
+        position: absolute;
+
+        top: 0;
+        left: 0;
+        height: @iconHeightSmall;
+
+        background-color: @primaryColor;
+    }
+
+    &.progress-bar-small {
+        height: 6px;
+        line-height: 6px;
+        i {
+            height: 6px;
+            line-height: 6px;
+        }
+    }
+
+    &.progress-bar-large {
+        height: @iconHeight;
+        line-height: @iconHeight;
+        i {
+            height: @iconHeight;
+            line-height: @iconHeight;
+        }
+    }
+
+    &.progress-bar-wide {
+        width: 100%;
+    }
+}
 
 
 /*------------------------------------*
     Tables
 *------------------------------------*/
+

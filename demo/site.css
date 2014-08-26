@@ -25,7 +25,10 @@ label {
 .form-controls .button,
 .form-controls .text,
 .form-controls .input-group,
-.form-controls .toggle-group
+.form-controls .toggle-group,
+.form-controls .table,
+.form-controls .progress-bar,
+.form-controls .slider
 {
     margin-bottom: 10px;
 }

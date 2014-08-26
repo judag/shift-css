@@ -554,7 +554,98 @@ input.toggle {
 *------------------------------------*/
 
 .slider {
+    position: relative;
 
+    height: @inputHeight;
+    width: 12em;
+
+    i {
+        position: absolute;
+
+        top: (@inputHeight - @iconHeightSmall) / 2;
+        left: 0;
+        height: @iconHeightSmall;
+
+        background-color: @primaryColor;
+        z-index: 2;
+
+        &:before {
+            content: '';
+            display: block;
+            position: absolute;
+
+            top: -(@inputHeight - @iconHeightSmall) / 2;
+            right: 0;
+            margin-right: -(@iconHeightSmall/2);
+            width: @iconHeightSmall;
+            height: @inputHeight;
+
+            box-shadow: 0 0 0 1px darken(@borderColorLight, 5%) inset;
+            background-color: @borderColorLight;
+            z-index: 3;
+        }
+    }
+
+    &:before {
+        content: '';
+        display: block;
+        position: absolute;
+
+        top: (@inputHeight - @iconHeightSmall) / 2;
+        left: 0;
+        width: 100%;
+        height: @iconHeightSmall;
+
+        box-shadow: 0 0 0 1px darken(@borderColorLight, 5%) inset;
+        background-color: @borderColorLight;
+        z-index: 1;
+    }
+
+    &.slider-small {
+        height: @iconHeight;
+
+        &:before {
+            top: (@iconHeight - 6px) / 2;
+            height: 6px;
+        }
+
+        i {
+            top: (@iconHeight - 6px) / 2;
+            height: 6px;
+
+            &:before {
+                top: -5px;
+                height: @iconHeightSmall;
+                margin-right: -5px;
+                width: @paddingThin;
+            }
+        }
+    }
+
+    &.slider-large {
+        height: @listIconHeight;
+
+        &:before {
+            top: (@listIconHeight - @iconHeight) / 2;
+            height: @iconHeight;
+        }
+
+        i {
+            top: (@listIconHeight - @iconHeight) / 2;
+            height: @iconHeight;
+
+            &:before {
+                top: -(@listIconHeight - @iconHeight) / 2;
+                height: @listIconHeight;
+                margin-right: -(@paddingThick/2);
+                width: @iconHeight;
+            }
+        }
+    }
+
+    &.slider-wide {
+        width: 100%;
+    }
 }
 
 
@@ -563,13 +654,7 @@ input.toggle {
 *------------------------------------*/
 
 .input-group {
-    height: @inputHeight;
-    line-height: @inputHeight;
 
-    &.input-group-thin {
-        height: @iconHeight;
-        line-height: @iconHeight;
-    }
 }
 
 .input-group-inline {

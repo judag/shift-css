@@ -779,9 +779,10 @@ button {
   line-height: 44px;
 }
 .text.code {
-  font-family: monospace;
   background: #eceff3;
   box-shadow: 0 0 0 1px #dadee1 inset;
+  font-family: monospace;
+  font-size: 80%;
 }
 .text.disabled,
 .text[disabled] {

@@ -671,6 +671,79 @@ label.label {
 /*------------------------------------*
     Tables
 *------------------------------------*/
+table.table th,
+table.table td {
+  box-sizing: border-box;
+  padding: 0 10px;
+  height: 32px;
+  line-height: 32px;
+}
+table.table thead th {
+  background-color: #3b3f53;
+  color: #ffffff;
+  font-weight: 400;
+}
+table.table.table-small th,
+table.table.table-small td {
+  padding: 0 8px;
+  height: 26px;
+  line-height: 26px;
+  font-size: 11pt;
+}
+table.table.table-large th,
+table.table.table-large td {
+  padding: 0 17px;
+  height: 44px;
+  line-height: 44px;
+  font-size: 15pt;
+}
+table.table.table-striped tbody tr:nth-child(2n) td {
+  background-color: #f4f6f8;
+}
+table.table:not(.table-inline) td {
+  box-shadow: -1px -1px 0 #eceff3 inset;
+}
+table.table:not(.table-inline) td:first-child {
+  box-shadow: -1px -1px 0 #eceff3 inset, 1px 0 0 #eceff3 inset;
+}
+table.table:not(.table-inline) tbody tr:first-child td {
+  box-shadow: 0 1px 0 #eceff3 inset, -1px -1px 0 #eceff3 inset;
+}
+table.table:not(.table-inline) tbody tr:first-child td:first-child {
+  box-shadow: 0 1px 0 #eceff3 inset, -1px -1px 0 #eceff3 inset, 1px 0 0 #eceff3 inset;
+}
+table.table.table-inline td {
+  box-shadow: 0 -1px 0 #eceff3 inset;
+}
+table.table.table-inline tr:last-child td {
+  box-shadow: none;
+}
+table.table.table-wide {
+  width: 100%;
+}
+table.table .cell-center {
+  text-align: center;
+}
+table.table .cell-icon {
+  min-width: 32px;
+  text-align: center;
+}
+table.table .cell-right {
+  text-align: right;
+}
+table.table tr.active td {
+  box-shadow: 0 -1px 0 #40b1d0 !important;
+  background-color: #40b1d0 !important;
+  color: #ffffff;
+}
+table.table tr.disabled td {
+  color: #dadee1;
+}
+table.table tr.disabled.active td {
+  box-shadow: none !important;
+  background-color: #eceff3 !important;
+  color: #ffffff;
+}
 /*------------------------------------*
     Global Input Styles
 *------------------------------------*/

@@ -15,11 +15,11 @@ label {
 
 .grid-test .col {
     text-align: center;
-    background: #e1e1e1;
+    background: #eceff3;
 }
 
 .grid-test .col:nth-child(2n) {
-    background: #c1c1c1;
+    background: #dce2e9;
 }
 
 .form-controls .button,

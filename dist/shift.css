@@ -603,6 +603,15 @@ hr {
   background-color: #ed5565;
 }
 /*------------------------------------*
+    Labels
+*------------------------------------*/
+label.label {
+  display: inline-block;
+  height: 32px;
+  line-height: 32px;
+  vertical-align: top;
+}
+/*------------------------------------*
     Content Groups
 *------------------------------------*/
 .group {
@@ -620,6 +629,12 @@ hr {
 .group + .group {
   margin-top: 34px;
 }
+/*------------------------------------*
+    Progress Bar
+*------------------------------------*/
+/*------------------------------------*
+    Tables
+*------------------------------------*/
 /*------------------------------------*
     Global Input Styles
 *------------------------------------*/
@@ -1103,15 +1118,6 @@ input.toggle:disabled ~ label.label {
 .toggle-group.wide > div {
   width: 100%;
   float: none;
-}
-/*------------------------------------*
-    Labels
-*------------------------------------*/
-label.label {
-  display: inline-block;
-  height: 32px;
-  line-height: 32px;
-  vertical-align: top;
 }
 /*------------------------------------*
     Input Groups

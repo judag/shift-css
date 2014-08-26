@@ -128,7 +128,7 @@ button {
         }
     }
 
-    &.disabled, &[disabled] {
+    &:disabled {
         background-color: transparent;
         box-shadow: 0 0 0 1px @borderColorLight inset;
         cursor: default;
@@ -204,7 +204,7 @@ button {
         font-size: 80%;
     }
 
-    &.disabled, &[disabled] {
+    &:disabled {
         background-color: transparent;
         box-shadow: 0 0 0 1px @borderColorLight inset;
         cursor: default;
@@ -233,11 +233,230 @@ textarea.text {
 
 
 /*------------------------------------*
+    Checkbox
+*------------------------------------*/
+
+input.checkbox,
+input.radio {
+    display: none;
+
+    + label.checkbox,
+    + label.radio {
+        display: inline-block;
+        position: relative;
+
+        height: @inputHeight;
+        padding-left: @iconHeightSmall;
+
+        cursor: pointer;
+        outline: none;
+
+        line-height: @inputHeight;
+        text-indent: @paddingThin;
+
+        &:before {
+            content: '';
+            display: block;
+            position: absolute;
+
+            left: 0;
+            top: (@inputHeight - @iconHeightSmall) / 2;
+            width: @iconHeightSmall;
+            height: @iconHeightSmall;
+
+            background-color: @borderColorLight;
+            box-shadow: 0 0 0 1px darken(@borderColorLight, 5%) inset;
+            cursor: pointer;
+        }
+    }
+
+    &:active,
+    &:focus {
+        + label {
+            .activeInputOverlay;
+
+            &:after {
+                left: 0;
+                top: (@inputHeight - @iconHeightSmall) / 2;
+                width: @iconHeightSmall;
+                height: @iconHeightSmall;
+            }
+        }
+    }
+
+    &:checked {
+        + label:before {
+            background-color: @primaryColor;
+            box-shadow: none;
+        }
+    }
+
+    &:disabled {
+        + label {
+            cursor: default;
+            color: @textColorLight;
+
+            &:before {
+                background-color: transparent;
+                box-shadow: 0 0 0 1px @borderColorLight inset;
+                cursor: default;
+            }
+        }
+
+        &:checked {
+            + label {
+                &:before {
+                    background-color: @borderColorLight;
+                }
+            }
+        }
+
+        &:active,
+        &:focus {
+            + label:after {
+                box-shadow: 0 0 3px 1px @borderColorLight;
+            }
+        }
+    }
+}
+
+input.radio {
+    + label:before {
+        border-radius: 50%;
+    }
+    &:active,
+    &:focus {
+        + label:after {
+            border-radius: 50%;
+        }
+    }
+}
+
+
+/*------------------------------------*
+    Toggles
+*------------------------------------*/
+
+input.toggle {
+    display: none;
+
+    + label.toggle {
+        display: inline-block;
+        position: relative;
+
+        height: @inputHeight;
+        width: @inputHeight * 2;
+
+        box-shadow: 0 0 0 1px @borderColorLight inset;
+        cursor: pointer;
+        outline: none;
+
+        line-height: @inputHeight;
+
+        i {
+            display: block;
+            position: absolute;
+
+            top: 0;
+            left: 0;
+            width: @inputHeight;
+            height: @inputHeight;
+
+            background: @borderColorLight;
+            box-shadow: 0 0 0 1px @borderColor inset;
+            z-index: 2;
+
+            transition: left 100ms ease-in-out;
+        }
+
+        &:before,
+        &:after {
+            display: block;
+            content: '';
+            position: absolute;
+
+            top: 0;
+            width: @inputHeight;
+            height: @inputHeight;
+
+            z-index: 1;
+
+            text-align: center;
+            font-weight: bolder;
+            line-height: @inputHeight;
+            font-size: @fontSizeHeader;
+        }
+
+        &:before {
+            content: '○';
+            left: 0;
+            background-color: @primaryColor;
+            color: @white;
+        }
+
+        &:after {
+            content: '×';
+            font-weight: lighter;
+            color: @textColorLight;
+            left: 50%;
+        }
+    }
+
+    ~ label.label {
+        margin-left: @paddingThin;
+    }
+
+    &:checked {
+        + label.toggle {
+            i {
+                left: 50%;
+            }
+        }
+    }
+
+    &:disabled {
+        + label.toggle {
+            i,
+            &:before,
+            &:after {
+                background-color: transparent;
+                color: transparent;
+            }
+
+            i {
+                box-shadow: 0 0 0 1px @borderColorLight inset;
+                background-color: @borderColorLight;
+            }
+        }
+
+        ~ label.label {
+            color: @textColorLight;
+        }
+    }
+}
+
+
+
+/*------------------------------------*
+    Toggles
+*------------------------------------*/
+
+label.label {
+    display: inline-block;
+    height: @inputHeight;
+
+    line-height: @inputHeight;
+    vertical-align: top;
+}
+
+
+/*------------------------------------*
     Input Groups
 *------------------------------------*/
 
 .input-group {
-
+    height: @inputHeight;
+    line-height: @inputHeight;
 }
 
 .input-group-inline {

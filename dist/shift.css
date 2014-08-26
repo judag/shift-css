@@ -615,7 +615,7 @@ hr {
   margin-top: 0;
 }
 .group p + hr {
-  padding-top: 21.25px;
+  margin-top: 21.25px;
 }
 .group + .group {
   margin-top: 34px;
@@ -726,15 +726,13 @@ button {
 .button.large.button-icon {
   width: 44px;
 }
-.button.disabled,
-.button[disabled] {
+.button:disabled {
   background-color: transparent;
   box-shadow: 0 0 0 1px #eceff3 inset;
   cursor: default;
   color: #dadee1;
 }
-.button.disabled:active:after,
-.button[disabled]:active:after {
+.button:disabled:active:after {
   box-shadow: 0 0 3px 1px #eceff3;
 }
 /*------------------------------------*
@@ -784,15 +782,13 @@ button {
   font-family: monospace;
   font-size: 80%;
 }
-.text.disabled,
-.text[disabled] {
+.text:disabled {
   background-color: transparent;
   box-shadow: 0 0 0 1px #eceff3 inset;
   cursor: default;
   color: #dadee1;
 }
-.text.disabled:focus:after,
-.text[disabled]:focus:after {
+.text:disabled:focus:after {
   box-shadow: 0 0 3px 1px #eceff3;
 }
 input.text {
@@ -805,8 +801,186 @@ textarea.text {
   line-height: 1.25em;
 }
 /*------------------------------------*
+    Checkbox
+*------------------------------------*/
+input.checkbox,
+input.radio {
+  display: none;
+}
+input.checkbox + label.checkbox,
+input.radio + label.checkbox,
+input.checkbox + label.radio,
+input.radio + label.radio {
+  display: inline-block;
+  position: relative;
+  height: 32px;
+  padding-left: 16px;
+  cursor: pointer;
+  outline: none;
+  line-height: 32px;
+  text-indent: 10px;
+}
+input.checkbox + label.checkbox:before,
+input.radio + label.checkbox:before,
+input.checkbox + label.radio:before,
+input.radio + label.radio:before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 16px;
+  height: 16px;
+  background-color: #eceff3;
+  box-shadow: 0 0 0 1px #dce2e9 inset;
+  cursor: pointer;
+}
+input.checkbox:active + label:after,
+input.radio:active + label:after,
+input.checkbox:focus + label:after,
+input.radio:focus + label:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none !important;
+  box-shadow: 0 0 3px 1px #63cdeb;
+}
+input.checkbox:active + label:after,
+input.radio:active + label:after,
+input.checkbox:focus + label:after,
+input.radio:focus + label:after {
+  left: 0;
+  top: 8px;
+  width: 16px;
+  height: 16px;
+}
+input.checkbox:checked + label:before,
+input.radio:checked + label:before {
+  background-color: #40b1d0;
+  box-shadow: none;
+}
+input.checkbox:disabled + label,
+input.radio:disabled + label {
+  cursor: default;
+  color: #919699;
+}
+input.checkbox:disabled + label:before,
+input.radio:disabled + label:before {
+  background-color: transparent;
+  box-shadow: 0 0 0 1px #eceff3 inset;
+  cursor: default;
+}
+input.checkbox:disabled:checked + label:before,
+input.radio:disabled:checked + label:before {
+  background-color: #eceff3;
+}
+input.checkbox:disabled:active + label:after,
+input.radio:disabled:active + label:after,
+input.checkbox:disabled:focus + label:after,
+input.radio:disabled:focus + label:after {
+  box-shadow: 0 0 3px 1px #eceff3;
+}
+input.radio + label:before {
+  border-radius: 50%;
+}
+input.radio:active + label:after,
+input.radio:focus + label:after {
+  border-radius: 50%;
+}
+/*------------------------------------*
+    Toggles
+*------------------------------------*/
+input.toggle {
+  display: none;
+}
+input.toggle + label.toggle {
+  display: inline-block;
+  position: relative;
+  height: 32px;
+  width: 64px;
+  box-shadow: 0 0 0 1px #eceff3 inset;
+  cursor: pointer;
+  outline: none;
+  line-height: 32px;
+}
+input.toggle + label.toggle i {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 32px;
+  background: #eceff3;
+  box-shadow: 0 0 0 1px #dadee1 inset;
+  z-index: 2;
+  -webkit-transition: left 100ms ease-in-out;
+          transition: left 100ms ease-in-out;
+}
+input.toggle + label.toggle:before,
+input.toggle + label.toggle:after {
+  display: block;
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 32px;
+  height: 32px;
+  z-index: 1;
+  text-align: center;
+  font-weight: bolder;
+  line-height: 32px;
+  font-size: 15pt;
+}
+input.toggle + label.toggle:before {
+  content: '○';
+  left: 0;
+  background-color: #40b1d0;
+  color: #ffffff;
+}
+input.toggle + label.toggle:after {
+  content: '×';
+  font-weight: lighter;
+  color: #919699;
+  left: 50%;
+}
+input.toggle ~ label.label {
+  margin-left: 10px;
+}
+input.toggle:checked + label.toggle i {
+  left: 50%;
+}
+input.toggle:disabled + label.toggle i,
+input.toggle:disabled + label.toggle:before,
+input.toggle:disabled + label.toggle:after {
+  background-color: transparent;
+  color: transparent;
+}
+input.toggle:disabled + label.toggle i {
+  box-shadow: 0 0 0 1px #eceff3 inset;
+  background-color: #eceff3;
+}
+input.toggle:disabled ~ label.label {
+  color: #919699;
+}
+/*------------------------------------*
+    Toggles
+*------------------------------------*/
+label.label {
+  display: inline-block;
+  height: 32px;
+  line-height: 32px;
+  vertical-align: top;
+}
+/*------------------------------------*
     Input Groups
 *------------------------------------*/
+.input-group {
+  height: 32px;
+  line-height: 32px;
+}
 .input-group-inline input[type="text"],
 .input-group-inline input[type="password"],
 .input-group-inline input[type="submit"],
@@ -983,6 +1157,10 @@ div.row {
 }
 .col {
   width: 100%;
+  margin-right: 17px;
+}
+.col:last-child {
+  margin-right: 0;
 }
 .col-1-8 {
   width: 12.5%;

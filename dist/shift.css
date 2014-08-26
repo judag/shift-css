@@ -703,12 +703,12 @@ button {
   pointer-events: none !important;
   box-shadow: 0 0 3px 1px #63cdeb;
 }
-.button.dark {
+.button.button-dark {
   background-color: #dadee1;
   box-shadow: none;
   color: #ffffff;
 }
-.button.primary,
+.button.button-primary,
 .button.active {
   box-shadow: none;
   background-color: #40b1d0;
@@ -717,34 +717,34 @@ button {
 .button.active {
   cursor: default;
 }
-.button.dangerous {
+.button.button-dangerous {
   box-shadow: none;
   background-color: #ed5565;
   color: #ffffff;
 }
-.button.dangerous:active:after {
+.button.button-dangerous:active:after {
   box-shadow: 0 0 3px 1px #f49aa4;
 }
 .button.button-icon {
   padding: 0 !important;
   width: 32px;
 }
-.button.small {
+.button.button-small {
   padding: 0 8px;
   height: 26px;
   font-size: 11pt;
   line-height: 26px;
 }
-.button.small.button-icon {
+.button.button-small.button-icon {
   width: 26px;
 }
-.button.large {
+.button.button-large {
   padding: 0 17px;
   height: 44px;
   font-size: 15pt;
   line-height: 44px;
 }
-.button.large.button-icon {
+.button.button-large.button-icon {
   width: 44px;
 }
 .button:disabled {
@@ -775,29 +775,29 @@ button {
 .text:-ms-input-placeholder {
   color: #919699;
 }
-.text.wide {
+.text.text-wide {
   width: 100%;
 }
-.text.short {
+.text.text-short {
   width: 6em;
 }
-.text.digit {
+.text.text-digit {
   width: 3em;
   text-align: center;
 }
-.text.small {
+.text.text-small {
   padding: 0 8px;
   height: 26px;
   font-size: 11pt;
   line-height: 26px;
 }
-.text.large {
+.text.text-large {
   padding: 0 17px;
   height: 44px;
   font-size: 15pt;
   line-height: 44px;
 }
-.text.code {
+.text.text-code {
   background: #eceff3;
   box-shadow: 0 0 0 1px #dadee1 inset;
   font-family: monospace;
@@ -1074,27 +1074,27 @@ input.toggle:disabled ~ label.label {
 .toggle-group > div input:disabled + label:focus:after {
   box-shadow: 0 0 3px 1px #eceff3;
 }
-.toggle-group.small {
+.toggle-group.toggle-group-small {
   height: 26px;
   line-height: 26px;
 }
-.toggle-group.small > div label {
+.toggle-group.toggle-group-small > div label {
   height: 26px;
   padding: 0 8px;
   font-size: 11pt;
   line-height: 26px;
 }
-.toggle-group.large {
+.toggle-group.toggle-group-large {
   height: 44px;
   line-height: 44px;
 }
-.toggle-group.large > div label {
+.toggle-group.toggle-group-large > div label {
   height: 44px;
   padding: 0 17px;
   font-size: 15pt;
   line-height: 44px;
 }
-.toggle-group.wide {
+.toggle-group.toggle-group-wide {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1115,10 +1115,13 @@ input.toggle:disabled ~ label.label {
           justify-content: flex-start;
   width: 100%;
 }
-.toggle-group.wide > div {
+.toggle-group.toggle-group-wide > div {
   width: 100%;
   float: none;
 }
+/*------------------------------------*
+    Slider
+*------------------------------------*/
 /*------------------------------------*
     Input Groups
 *------------------------------------*/

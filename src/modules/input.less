@@ -69,14 +69,14 @@ button {
         .activeInputOverlay;
     }
 
-    &.dark {
+    &.button-dark {
         background-color: @borderColor;
         box-shadow: none;
 
         color: @white;
     }
 
-    &.primary, &.active {
+    &.button-primary, &.active {
         box-shadow: none;
         background-color: @primaryColor;
 
@@ -87,7 +87,7 @@ button {
         cursor: default;
     }
 
-    &.dangerous {
+    &.button-dangerous {
         box-shadow: none;
         background-color: @error;
 
@@ -105,7 +105,7 @@ button {
         width: @inputHeight;
     }
 
-    &.small {
+    &.button-small {
         padding: 0 @paddingThin*0.8;
         height: @iconHeight;
 
@@ -117,7 +117,7 @@ button {
         }
     }
 
-    &.large {
+    &.button-large {
         padding: 0 @padding;
         height: @listIconHeight;
 
@@ -168,20 +168,20 @@ button {
         color: @textColorLight;
     }
 
-    &.wide {
+    &.text-wide {
         width: 100%;
     }
 
-    &.short {
+    &.text-short {
         width: 6em;
     }
 
-    &.digit {
+    &.text-digit {
         width: 3em;
         text-align: center;
     }
 
-    &.small {
+    &.text-small {
         padding: 0 @paddingThin*0.8;
         height: @iconHeight;
 
@@ -189,7 +189,7 @@ button {
         line-height: @iconHeight;
     }
 
-    &.large {
+    &.text-large {
         padding: 0 @padding;
         height: @listIconHeight;
 
@@ -197,7 +197,7 @@ button {
         line-height: @listIconHeight;
     }
 
-    &.code {
+    &.text-code {
         background: @borderColorLight;
         box-shadow: 0 0 0 1px @borderColor inset;
 
@@ -504,7 +504,7 @@ input.toggle {
         }
     }
 
-    &.small {
+    &.toggle-group-small {
         height: @iconHeight;
         line-height: @iconHeight;
 
@@ -518,7 +518,7 @@ input.toggle {
         }
     }
 
-    &.large {
+    &.toggle-group-large {
         height: @listIconHeight;
         line-height: @listIconHeight;
 
@@ -532,7 +532,7 @@ input.toggle {
         }
     }
 
-    &.wide {
+    &.toggle-group-wide {
         display: flex;
         flex-wrap: nowrap;
         align-items: stretch;
@@ -546,6 +546,15 @@ input.toggle {
             float: none;
         }
     }
+}
+
+
+/*------------------------------------*
+    Slider
+*------------------------------------*/
+
+.slider {
+
 }
 
 

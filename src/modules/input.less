@@ -58,6 +58,7 @@ button {
 
     background-color: @borderColorLight;
     box-shadow: 0 0 0 1px darken(@borderColorLight, 5%) inset;
+    .no-select;
     cursor: pointer;
     outline: none;
 
@@ -245,13 +246,14 @@ input.radio {
         display: inline-block;
         position: relative;
 
-        height: @inputHeight;
+        height: @iconHeight;
         padding-left: @iconHeightSmall;
 
+        .no-select;
         cursor: pointer;
         outline: none;
 
-        line-height: @inputHeight;
+        line-height: @iconHeight;
         text-indent: @paddingThin;
 
         &:before {
@@ -260,7 +262,7 @@ input.radio {
             position: absolute;
 
             left: 0;
-            top: (@inputHeight - @iconHeightSmall) / 2;
+            top: (@iconHeight - @iconHeightSmall) / 2;
             width: @iconHeightSmall;
             height: @iconHeightSmall;
 
@@ -294,7 +296,7 @@ input.radio {
     &:disabled {
         + label {
             cursor: default;
-            color: @textColorLight;
+            color: @borderColor;
 
             &:before {
                 background-color: transparent;
@@ -339,6 +341,7 @@ input.radio {
 
 input.toggle {
     display: none;
+    .no-select;
 
     + label.toggle {
         display: inline-block;
@@ -348,6 +351,7 @@ input.toggle {
         width: @inputHeight * 2;
 
         box-shadow: 0 0 0 1px @borderColorLight inset;
+        .no-select;
         cursor: pointer;
         outline: none;
 
@@ -420,7 +424,7 @@ input.toggle {
             &:before,
             &:after {
                 background-color: transparent;
-                color: transparent;
+                color: @borderColor;
             }
 
             i {
@@ -430,15 +434,123 @@ input.toggle {
         }
 
         ~ label.label {
-            color: @textColorLight;
+            color: @borderColor;
         }
     }
 }
 
 
+/*------------------------------------*
+    Toggle Group
+*------------------------------------*/
+
+.toggle-group {
+    height: @inputHeight;
+    line-height: @inputHeight;
+    .no-select;
+
+    > div {
+        position: relative;
+        float: left;
+
+        margin-right: -1px;
+        height: @inputHeight;
+
+        line-height: @inputHeight;
+
+        label {
+            position: relative;
+            display: block;
+
+            height: @inputHeight;
+            padding: 0 @paddingThin;
+
+            background-color: @borderColorLight;
+            box-shadow: 0 0 0 1px darken(@borderColorLight, 5%) inset;
+            cursor: pointer;
+            outline: none;
+
+            text-align: center;
+
+            &:active, &:focus {
+                .activeInputOverlay;
+                z-index: 1;
+            }
+        }
+
+        input {
+            display: none;
+
+            &:checked + label {
+                box-shadow: none;
+                background-color: @primaryColor;
+                color: @white;
+                cursor: default;
+            }
+
+            &:disabled + label {
+                background-color: transparent;
+                box-shadow: 0 0 0 1px @borderColorLight inset;
+                color: @borderColor;
+                cursor: default;
+
+                &:active, &:focus {
+                    &:after {
+                        box-shadow: 0 0 3px 1px @borderColorLight;
+                    }
+                    z-index: 1;
+                }
+            }
+        }
+    }
+
+    &.small {
+        height: @iconHeight;
+        line-height: @iconHeight;
+
+        > div {
+            label {
+                height: @iconHeight;
+                padding: 0 @paddingThin*0.8;
+                font-size: @fontSizeSmall;
+                line-height: @iconHeight;
+            }
+        }
+    }
+
+    &.large {
+        height: @listIconHeight;
+        line-height: @listIconHeight;
+
+        > div {
+            label {
+                height: @listIconHeight;
+                padding: 0 @padding;
+                font-size: @fontSizeHeader;
+                line-height: @listIconHeight;
+            }
+        }
+    }
+
+    &.wide {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: stretch;
+        align-content: stretch;
+        justify-content: flex-start;
+
+        width: 100%;
+
+        > div {
+            width: 100%;
+            float: none;
+        }
+    }
+}
+
 
 /*------------------------------------*
-    Toggles
+    Labels
 *------------------------------------*/
 
 label.label {
@@ -457,6 +569,11 @@ label.label {
 .input-group {
     height: @inputHeight;
     line-height: @inputHeight;
+
+    &.input-group-thin {
+        height: @iconHeight;
+        line-height: @iconHeight;
+    }
 }
 
 .input-group-inline {

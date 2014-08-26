@@ -24,7 +24,8 @@ label {
 
 .form-controls .button,
 .form-controls .text,
-.form-controls .input-group
+.form-controls .input-group,
+.form-controls .toggle-group
 {
     margin-bottom: 10px;
 }

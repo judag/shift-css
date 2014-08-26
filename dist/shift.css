@@ -666,6 +666,12 @@ button {
   height: 32px;
   background-color: #eceff3;
   box-shadow: 0 0 0 1px #dce2e9 inset;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: default;
   cursor: pointer;
   outline: none;
   line-height: 32px;
@@ -813,11 +819,17 @@ input.checkbox + label.radio,
 input.radio + label.radio {
   display: inline-block;
   position: relative;
-  height: 32px;
+  height: 26px;
   padding-left: 16px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: default;
   cursor: pointer;
   outline: none;
-  line-height: 32px;
+  line-height: 26px;
   text-indent: 10px;
 }
 input.checkbox + label.checkbox:before,
@@ -828,7 +840,7 @@ input.radio + label.radio:before {
   display: block;
   position: absolute;
   left: 0;
-  top: 8px;
+  top: 5px;
   width: 16px;
   height: 16px;
   background-color: #eceff3;
@@ -866,7 +878,7 @@ input.radio:checked + label:before {
 input.checkbox:disabled + label,
 input.radio:disabled + label {
   cursor: default;
-  color: #919699;
+  color: #dadee1;
 }
 input.checkbox:disabled + label:before,
 input.radio:disabled + label:before {
@@ -896,6 +908,12 @@ input.radio:focus + label:after {
 *------------------------------------*/
 input.toggle {
   display: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: default;
 }
 input.toggle + label.toggle {
   display: inline-block;
@@ -903,6 +921,12 @@ input.toggle + label.toggle {
   height: 32px;
   width: 64px;
   box-shadow: 0 0 0 1px #eceff3 inset;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: default;
   cursor: pointer;
   outline: none;
   line-height: 32px;
@@ -956,17 +980,132 @@ input.toggle:disabled + label.toggle i,
 input.toggle:disabled + label.toggle:before,
 input.toggle:disabled + label.toggle:after {
   background-color: transparent;
-  color: transparent;
+  color: #dadee1;
 }
 input.toggle:disabled + label.toggle i {
   box-shadow: 0 0 0 1px #eceff3 inset;
   background-color: #eceff3;
 }
 input.toggle:disabled ~ label.label {
-  color: #919699;
+  color: #dadee1;
 }
 /*------------------------------------*
-    Toggles
+    Toggle Group
+*------------------------------------*/
+.toggle-group {
+  height: 32px;
+  line-height: 32px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: default;
+}
+.toggle-group > div {
+  position: relative;
+  float: left;
+  margin-right: -1px;
+  height: 32px;
+  line-height: 32px;
+}
+.toggle-group > div label {
+  position: relative;
+  display: block;
+  height: 32px;
+  padding: 0 10px;
+  background-color: #eceff3;
+  box-shadow: 0 0 0 1px #dce2e9 inset;
+  cursor: pointer;
+  outline: none;
+  text-align: center;
+}
+.toggle-group > div label:active,
+.toggle-group > div label:focus {
+  z-index: 1;
+}
+.toggle-group > div label:active:after,
+.toggle-group > div label:focus:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none !important;
+  box-shadow: 0 0 3px 1px #63cdeb;
+}
+.toggle-group > div input {
+  display: none;
+}
+.toggle-group > div input:checked + label {
+  box-shadow: none;
+  background-color: #40b1d0;
+  color: #ffffff;
+  cursor: default;
+}
+.toggle-group > div input:disabled + label {
+  background-color: transparent;
+  box-shadow: 0 0 0 1px #eceff3 inset;
+  color: #dadee1;
+  cursor: default;
+}
+.toggle-group > div input:disabled + label:active,
+.toggle-group > div input:disabled + label:focus {
+  z-index: 1;
+}
+.toggle-group > div input:disabled + label:active:after,
+.toggle-group > div input:disabled + label:focus:after {
+  box-shadow: 0 0 3px 1px #eceff3;
+}
+.toggle-group.small {
+  height: 26px;
+  line-height: 26px;
+}
+.toggle-group.small > div label {
+  height: 26px;
+  padding: 0 8px;
+  font-size: 11pt;
+  line-height: 26px;
+}
+.toggle-group.large {
+  height: 44px;
+  line-height: 44px;
+}
+.toggle-group.large > div label {
+  height: 44px;
+  padding: 0 17px;
+  font-size: 15pt;
+  line-height: 44px;
+}
+.toggle-group.wide {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: nowrap;
+      -ms-flex-wrap: nowrap;
+          flex-wrap: nowrap;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-align-content: stretch;
+      -ms-flex-line-pack: stretch;
+          align-content: stretch;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  width: 100%;
+}
+.toggle-group.wide > div {
+  width: 100%;
+  float: none;
+}
+/*------------------------------------*
+    Labels
 *------------------------------------*/
 label.label {
   display: inline-block;
@@ -980,6 +1119,10 @@ label.label {
 .input-group {
   height: 32px;
   line-height: 32px;
+}
+.input-group.input-group-thin {
+  height: 26px;
+  line-height: 26px;
 }
 .input-group-inline input[type="text"],
 .input-group-inline input[type="password"],

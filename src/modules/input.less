@@ -51,7 +51,8 @@ button {
     }
 }
 
-.button {
+.button,
+.button-segment {
     position: relative;
     padding: 0 @paddingThin;
     height: @inputHeight;
@@ -64,10 +65,6 @@ button {
 
     line-height: @inputHeight;
     font-weight: 600;
-
-    &:active {
-        .activeInputOverlay;
-    }
 
     &.button-dark {
         background-color: @borderColor;
@@ -92,12 +89,6 @@ button {
         background-color: @error;
 
         color: @white;
-
-        &:active {
-            &:after {
-                box-shadow: 0 0 3px 1px lighten(@error, 15%);
-            }
-        }
     }
 
     &.button-icon {
@@ -129,18 +120,63 @@ button {
         }
     }
 
+    &.button-dropdown {
+        position: relative;
+        padding: 0 (@paddingThin + @inputHeight) 0 @paddingThin;
+
+        .button-segment {
+            position: absolute;
+            padding: 0;
+            top: 0;
+            right: 0;
+            width: @inputHeight;
+            line-height: (@inputHeight + @iconHeight) / 2;
+        }
+    }
+
+    &.button-loading {
+        position: relative;
+        transition:
+        padding 250ms ease-in-out,
+        color 250ms ease-in-out;
+
+        .spinner {
+            position: absolute;
+
+            top: (@inputHeight - @iconHeight) / 2;
+            left: (@inputHeight - @iconHeight) / 2;
+            margin-top: 2px;
+            margin-left: 1px;
+
+            transition: opacity 250ms ease-in-out;
+            opacity: 0;
+        }
+
+        &.loading {
+            padding: 0 @paddingThin 0 (@inputHeight);
+            color: @borderColorDark;
+            cursor: default;
+
+            .spinner {
+                opacity: 1;
+            }
+
+            &.button-primary {
+                text-color: rgba(255,255,255,0.5);
+
+                .spinner:after {
+                    border-bottom-color: @white;
+                }
+            }
+        }
+    }
+
     &:disabled {
         background-color: transparent;
         box-shadow: 0 0 0 1px @borderColorLight inset;
         cursor: default;
 
         color: @borderColor;
-
-        &:active {
-            &:after {
-                box-shadow: 0 0 3px 1px @borderColorLight;
-            }
-        }
     }
 }
 
@@ -152,7 +188,7 @@ button {
 .text {
     position: relative;
     height: @inputHeight;
-    width: 12em;
+    width: 200px;
 
     box-shadow: 0 0 0 1px darken(@borderColorLight, 5%) inset;
     outline: none;
@@ -173,28 +209,38 @@ button {
     }
 
     &.text-short {
-        width: 6em;
+        width: 100px;
     }
 
     &.text-digit {
-        width: 3em;
+        width: 50px;
         text-align: center;
     }
 
     &.text-small {
         padding: 0 @paddingThin*0.8;
         height: @iconHeight;
+        width: 150px;
 
         font-size: @fontSizeSmall;
         line-height: @iconHeight;
+
+        &.text-wide {
+            width: 100%;
+        }
     }
 
     &.text-large {
         padding: 0 @padding;
         height: @listIconHeight;
+        width: 300px;
 
         font-size: @fontSizeHeader;
         line-height: @listIconHeight;
+
+        &.text-width {
+            width: 100%;
+        }
     }
 
     &.text-code {
@@ -272,20 +318,6 @@ input.radio {
         }
     }
 
-    &:active,
-    &:focus {
-        + label {
-            .activeInputOverlay;
-
-            &:after {
-                left: 0;
-                top: (@inputHeight - @iconHeightSmall) / 2;
-                width: @iconHeightSmall;
-                height: @iconHeightSmall;
-            }
-        }
-    }
-
     &:checked {
         + label:before {
             background-color: @primaryColor;
@@ -312,25 +344,12 @@ input.radio {
                 }
             }
         }
-
-        &:active,
-        &:focus {
-            + label:after {
-                box-shadow: 0 0 3px 1px @borderColorLight;
-            }
-        }
     }
 }
 
 input.radio {
     + label:before {
         border-radius: 50%;
-    }
-    &:active,
-    &:focus {
-        + label:after {
-            border-radius: 50%;
-        }
     }
 }
 
@@ -471,11 +490,6 @@ input.toggle {
             outline: none;
 
             text-align: center;
-
-            &:active, &:focus {
-                .activeInputOverlay;
-                z-index: 1;
-            }
         }
 
         input {
@@ -493,13 +507,6 @@ input.toggle {
                 box-shadow: 0 0 0 1px @borderColorLight inset;
                 color: @borderColor;
                 cursor: default;
-
-                &:active, &:focus {
-                    &:after {
-                        box-shadow: 0 0 3px 1px @borderColorLight;
-                    }
-                    z-index: 1;
-                }
             }
         }
     }
@@ -546,6 +553,149 @@ input.toggle {
             float: none;
         }
     }
+}
+
+
+/*------------------------------------*
+    Select
+*------------------------------------*/
+
+@inputBorderColor: darken(@borderColorLight, 5%);
+
+.select {
+    position: relative;
+
+    min-height: @inputHeight;
+    width: 200px;
+
+    line-height: 0;
+    word-spacing: 0;
+
+    label {
+        display: block;
+        box-sizing: border-box;
+
+        width: 100%;
+
+        background-color: @white;
+    }
+
+    .button-segment {
+        position: absolute;
+        padding: 0;
+        top: 0;
+        right: 0;
+        width: @inputHeight;
+
+        background: transparent;
+
+        line-height: (@inputHeight + @iconHeight) / 2;
+        text-align: center;
+    }
+}
+
+.select-dropdown {
+    position: absolute;
+
+    width: 100%;
+    height: 0;
+
+    z-index: 5;
+}
+
+label.select-current,
+label.select-option,
+label.select-top {
+    padding: 0 @paddingThin;
+    height: @inputHeight;
+
+    line-height: @inputHeight;
+}
+
+label.select-current {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: @inputHeight;
+    width: 100%;
+
+    box-shadow: 0 0 0 1px @inputBorderColor inset;
+    z-index: 6;
+}
+
+label.select-option {
+    display: none;
+    box-shadow:
+        -1px 0 0 0 @inputBorderColor inset,
+        1px 0 0 0 @inputBorderColor inset;
+}
+
+input.select-controller {
+    display: none;
+
+    &:checked {
+        ~ .select-dropdown {
+            height: auto;
+
+            label.select-group {
+                height: @inputHeight;
+            }
+
+            label.select-option {
+                display: block;
+            }
+        }
+    }
+}
+
+label.select-current {
+    position: relative;
+    padding: 0 (@paddingThin + @inputHeight) 0 @paddingThin;
+
+    background-color: transparent !important;
+}
+
+label.select-group {
+    display: block;
+    position: static;
+    height: 0;
+
+    &:last-child {
+        label.select-option {
+            box-shadow:
+                -1px -1px 0 0 @inputBorderColor inset,
+                1px 0 0 0 @inputBorderColor inset;
+        }
+    }
+}
+
+input.select-option {
+    display: none;
+
+    &:checked {
+        ~ label.select-option {
+            background: @primaryColor;
+            box-shadow: 0 0 0 1px @primaryColor inset;
+            color: @white;
+        }
+
+        ~ label.select-top {
+            display: block;
+        }
+    }
+}
+
+label.select-option {
+
+}
+
+label.select-top {
+    display: none;
+    position: absolute;
+    top: -@inputHeight;
+    left: 0;
+
+    padding: 0 (@paddingThin + @inputHeight) 0 @paddingThin;
 }
 
 

@@ -106,12 +106,28 @@
 }
 
 .panel-body {
-
-
     &.panel-body-padded {
         padding: @padding;
     }
+
+    p,
+    ol,
+    ul,
+    .input-group,
+    .input-group-inline,
+    .table {
+        margin-bottom: @padding;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
 }
+
+
+/*------------------------------------*
+    Navigation Panel
+*------------------------------------*/
 
 .panel-nav, .panel-dark {
     background-color: @navBackgroundColor;
@@ -126,6 +142,61 @@
 .panel-nav {
     .panel-body {
         padding: @padding 0;
+    }
+}
+
+
+/*------------------------------------*
+    Modals
+*------------------------------------*/
+
+.panel-modal {
+    .panel-body {
+        padding-bottom: @padding + @inputHeight;
+    }
+
+    .modal-controls {
+        position: absolute;
+        display: block;
+
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: @inputHeight;
+        padding: @padding;
+        padding-top: 0;
+
+        > * {
+            float: right;
+        }
+    }
+}
+
+.modal-close {
+    position: absolute;
+
+    right: @paddingThin;
+    top: @paddingThin;
+    width: @inputHeight;
+    height: @inputHeight;
+
+    cursor: pointer;
+
+    &:after {
+        content: '×';
+        display: block;
+        position: absolute;
+
+        left: 0;
+        top: 0;
+        width: @inputHeight;
+        height: @inputHeight;
+
+        font-weight: 600;
+        line-height: @inputHeight;
+        color: @textColorLight;
+        text-align: center;
+        font-size: 200%;
     }
 }
 

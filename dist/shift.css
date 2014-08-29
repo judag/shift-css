@@ -1,4 +1,4 @@
-/*! shift-css - v0.0.1 - 2014-08-26
+/*! shift-css - v0.0.1 - 2014-08-28
 * https://github.com/jordanranson/shift-css
 * Copyright (c) 2014 Jordan Ranson; Licensed under the Apache2 license */
 /*------------------------------------*
@@ -1309,18 +1309,13 @@ input.toggle:disabled ~ label.label {
 /*------------------------------------*
     Input Groups
 *------------------------------------*/
-.input-group-inline input[type="text"],
-.input-group-inline input[type="password"],
-.input-group-inline input[type="submit"],
-.input-group-inline input[type="radio"],
-.input-group-inline input[type="checkbox"],
-.input-group-inline input[type="number"],
-.input-group-inline input[type="file"],
-.input-group-inline textarea,
-.input-group-inline select,
-.input-group-inline button,
-.input-group-inline .button,
-.input-group-inline .text {
+.input-group {
+  min-height: 32px;
+}
+.input-group-inline {
+  min-height: 32px;
+}
+.input-group-inline > * {
   display: block;
   float: left;
   margin-left: 10px;
@@ -1333,118 +1328,136 @@ input.toggle:disabled ~ label.label {
   z-index: 3;
   pointer-events: none;
 }
-.anchor.anchor-topleft {
+.anchor-topleft {
   top: 0;
   left: 0;
 }
-.anchor.anchor-topleft.anchor-offset {
+.anchor-topleft.anchor-offset {
   top: 17px;
   left: 17px;
 }
-.anchor.anchor-topleft.anchor-offset-thick {
+.anchor-topleft.anchor-offset-thick {
   top: 34px;
   left: 34px;
 }
-.anchor.anchor-topright {
+.anchor-topright {
   top: 0;
   right: 0;
 }
-.anchor.anchor-topright.anchor-offset {
+.anchor-topright.anchor-offset {
   top: 17px;
   right: 17px;
 }
-.anchor.anchor-topright.anchor-offset-thick {
+.anchor-topright.anchor-offset-thick {
   top: 34px;
   right: 34px;
 }
-.anchor.anchor-bottomleft {
+.anchor-bottomleft {
   bottom: 0;
   left: 0;
 }
-.anchor.anchor-bottomleft.anchor-offset {
+.anchor-bottomleft.anchor-offset {
   bottom: 17px;
   left: 17px;
 }
-.anchor.anchor-bottomleft.anchor-offset-thick {
+.anchor-bottomleft.anchor-offset-thick {
   bottom: 34px;
   left: 34px;
 }
-.anchor.anchor-bottomright {
+.anchor-bottomright {
   bottom: 0;
   right: 0;
 }
-.anchor.anchor-bottomright.anchor-offset {
+.anchor-bottomright.anchor-offset {
   bottom: 17px;
   right: 17px;
 }
-.anchor.anchor-bottomright.anchor-offset-thick {
+.anchor-bottomright.anchor-offset-thick {
   bottom: 34px;
   right: 34px;
 }
-.anchor.anchor-center,
-.anchor.anchor-top,
-.anchor.anchor-left,
-.anchor.anchor-bottom,
-.anchor.anchor-right {
+.anchor-center,
+.anchor-top,
+.anchor-left,
+.anchor-bottom,
+.anchor-right {
   display: table;
 }
-.anchor.anchor-center .anchor-wrapper,
-.anchor.anchor-top .anchor-wrapper,
-.anchor.anchor-left .anchor-wrapper,
-.anchor.anchor-bottom .anchor-wrapper,
-.anchor.anchor-right .anchor-wrapper {
+.anchor-center .anchor-wrapper,
+.anchor-top .anchor-wrapper,
+.anchor-left .anchor-wrapper,
+.anchor-bottom .anchor-wrapper,
+.anchor-right .anchor-wrapper {
   display: table-cell;
   vertical-align: middle;
 }
-.anchor.anchor-center .anchor-wrapper,
-.anchor.anchor-top .anchor-wrapper,
-.anchor.anchor-bottom .anchor-wrapper {
+.anchor-center .anchor-wrapper,
+.anchor-top .anchor-wrapper,
+.anchor-bottom .anchor-wrapper {
   text-align: center;
 }
-.anchor.anchor-center {
+.anchor-center {
   width: 100%;
   height: 100%;
   z-index: 2;
 }
-.anchor.anchor-top {
+.anchor-top {
   top: 0;
   width: 100%;
 }
-.anchor.anchor-top.anchor-offset {
+.anchor-top.anchor-offset {
   top: 17px;
 }
-.anchor.anchor-top.anchor-offset-thick {
+.anchor-top.anchor-offset-thick {
   top: 34px;
 }
-.anchor.anchor-left {
+.anchor-left {
   left: 0;
   height: 100%;
 }
-.anchor.anchor-left.anchor-offset {
+.anchor-left.anchor-offset {
   left: 17px;
 }
-.anchor.anchor-left.anchor-offset-thick {
+.anchor-left.anchor-offset-thick {
   left: 34px;
 }
-.anchor.anchor-bottom {
+.anchor-bottom {
   bottom: 0;
   width: 100%;
 }
-.anchor.anchor-bottom.anchor-offset {
+.anchor-bottom.anchor-offset {
   bottom: 17px;
 }
-.anchor.anchor-bottom.anchor-offset-thick {
+.anchor-bottom.anchor-offset-thick {
   bottom: 34px;
 }
-.anchor.anchor-right {
+.anchor-right {
   right: 0;
   height: 100%;
 }
-.anchor.anchor-right.anchor-offset {
+.anchor-right.anchor-offset {
   right: 17px;
 }
-.anchor.anchor-right.anchor-offset-thick {
+.anchor-right.anchor-offset-thick {
   right: 34px;
+}
+.anchor-modal {
+  z-index: 9000000;
+  pointer-events: all;
+}
+.anchor-modal:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #1b1f29;
+  opacity: 0.8;
+  z-index: 9000001;
+}
+.anchor-modal .panel-modal {
+  z-index: 9000002;
 }
 .anchor-content {
   display: inline-block;
@@ -1630,6 +1643,25 @@ div.row {
 .panel-body.panel-body-padded {
   padding: 17px;
 }
+.panel-body p,
+.panel-body ol,
+.panel-body ul,
+.panel-body .input-group,
+.panel-body .input-group-inline,
+.panel-body .table {
+  margin-bottom: 17px;
+}
+.panel-body p:last-child,
+.panel-body ol:last-child,
+.panel-body ul:last-child,
+.panel-body .input-group:last-child,
+.panel-body .input-group-inline:last-child,
+.panel-body .table:last-child {
+  margin-bottom: 0;
+}
+/*------------------------------------*
+    Navigation Panel
+*------------------------------------*/
 .panel-nav,
 .panel-dark {
   background-color: #3b3f53;
@@ -1642,6 +1674,47 @@ div.row {
 }
 .panel-nav .panel-body {
   padding: 17px 0;
+}
+/*------------------------------------*
+    Modals
+*------------------------------------*/
+.panel-modal .panel-body {
+  padding-bottom: 49px;
+}
+.panel-modal .modal-controls {
+  position: absolute;
+  display: block;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 32px;
+  padding: 17px;
+  padding-top: 0;
+}
+.panel-modal .modal-controls > * {
+  float: right;
+}
+.modal-close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
+.modal-close:after {
+  content: '×';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 32px;
+  height: 32px;
+  font-weight: 600;
+  line-height: 32px;
+  color: #919699;
+  text-align: center;
+  font-size: 200%;
 }
 /*------------------------------------*
     Panel Group

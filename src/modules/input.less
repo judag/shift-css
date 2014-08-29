@@ -654,22 +654,13 @@ input.toggle {
 *------------------------------------*/
 
 .input-group {
-
+    min-height: @inputHeight;
 }
 
 .input-group-inline {
-    input[type="text"],
-    input[type="password"],
-    input[type="submit"],
-    input[type="radio"],
-    input[type="checkbox"],
-    input[type="number"],
-    input[type="file"],
-    textarea,
-    select,
-    button,
-    .button,
-    .text {
+    min-height: @inputHeight;
+
+    > * {
         display: block;
         float: left;
         margin-left: @paddingThin;

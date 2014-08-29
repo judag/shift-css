@@ -198,6 +198,72 @@
     text-align: center;
 }
 
+@keyframes spinnerAnimation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    33% {
+        transform: rotate(120deg);
+    }
+
+    34% {
+        transform: rotate(120deg);
+    }
+
+    66% {
+        transform: rotate(240deg);
+    }
+
+    67% {
+        transform: rotate(240deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.spinner {
+    position: relative;
+    display: inline-block;
+
+    width: @iconHeight;
+    height: @iconHeight;
+
+    animation: spinnerAnimation 3500ms infinite;
+    animation-timing-function: cubic-bezier(0.825, -0.450, 0.200, 1.450);
+
+    &:after {
+        content: '';
+        position: absolute;
+        display: block;
+
+        top: 50%;
+        left: 50%;
+        margin-top: -9px;
+        margin-left: -8px;
+        width: 0;
+        height: 0;
+
+        border-left: solid 8px transparent;
+        border-right: solid 8px transparent;
+        border-bottom: solid 14px @borderColorDark;
+    }
+
+    &.spinner-light {
+        &:after {
+            border-bottom-color: @borderColorLight;
+        }
+    }
+
+    &.spinner-white {
+        &:after {
+            border-bottom-color: @white;
+        }
+    }
+}
+
 
 /*------------------------------------*
     Helpers
@@ -252,6 +318,10 @@
 .error-filled {
     color: @white;
     background-color: @error;
+}
+
+.spinner {
+
 }
 
 

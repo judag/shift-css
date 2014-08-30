@@ -1148,6 +1148,7 @@ input.text {
 textarea.text {
   padding: 10px;
   min-height: 3.5em;
+  resize: none;
   line-height: 1.25em;
 }
 /*------------------------------------*
@@ -1412,6 +1413,7 @@ input.toggle:disabled ~ label.label {
   box-sizing: border-box;
   width: 100%;
   background-color: #ffffff;
+  cursor: pointer;
 }
 .select .button-segment {
   position: absolute;
@@ -1422,6 +1424,93 @@ input.toggle:disabled ~ label.label {
   background: transparent;
   line-height: 29px;
   text-align: center;
+}
+.select.select-wide {
+  width: 100%;
+}
+.select.select-small {
+  height: 26px;
+  min-height: 26px;
+  width: 150px;
+  font-size: 11pt;
+  line-height: 26px;
+}
+.select.select-small label {
+  line-height: 26px;
+}
+.select.select-small label.select-current,
+.select.select-small label.select-option,
+.select.select-small label.select-top {
+  padding: 0 8px;
+  height: 26px;
+  line-height: 26px;
+}
+.select.select-small label.select-current {
+  height: 26px;
+}
+.select.select-small input.select-controller:checked ~ .select-dropdown label.select-group {
+  height: 26px;
+}
+.select.select-small label.select-current {
+  padding: 0 34px 0 8px;
+}
+.select.select-small label.select-top {
+  top: -26px;
+  padding: 0 34px 0 8px;
+}
+.select.select-small .arrow-bottom i {
+  -webkit-transform: rotateZ(-135deg) scale(0.75);
+          transform: rotateZ(-135deg) scale(0.75);
+}
+.select.select-small .button-segment {
+  height: 26px;
+  width: 26px;
+  line-height: 24px;
+}
+.select.select-small.select-wide {
+  width: 100%;
+}
+.select.select-large {
+  height: 44px;
+  min-height: 44px;
+  width: 300px;
+  font-size: 15pt;
+  line-height: 44px;
+}
+.select.select-large label {
+  line-height: 44px;
+}
+.select.select-large label.select-current,
+.select.select-large label.select-option,
+.select.select-large label.select-top {
+  padding: 0 17px;
+  height: 44px;
+  line-height: 44px;
+}
+.select.select-large label.select-current {
+  height: 44px;
+}
+.select.select-large input.select-controller:checked ~ .select-dropdown label.select-group {
+  height: 44px;
+}
+.select.select-large label.select-current {
+  padding: 0 61px 0 17px;
+}
+.select.select-large label.select-top {
+  top: -44px;
+  padding: 0 61px 0 17px;
+}
+.select.select-large .arrow-bottom i {
+  -webkit-transform: rotateZ(-135deg) scale(1.25);
+          transform: rotateZ(-135deg) scale(1.25);
+}
+.select.select-large .button-segment {
+  height: 44px;
+  width: 44px;
+  line-height: 36px;
+}
+.select.select-large.select-wide {
+  width: 100%;
 }
 .select-dropdown {
   position: absolute;
@@ -1481,6 +1570,7 @@ input.select-option:checked ~ label.select-option {
   background: #40b1d0;
   box-shadow: 0 0 0 1px #40b1d0 inset;
   color: #ffffff;
+  cursor: default;
 }
 input.select-option:checked ~ label.select-top {
   display: block;

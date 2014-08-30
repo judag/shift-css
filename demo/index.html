@@ -632,7 +632,7 @@
                                                         <th>Default</th>
                                                         <th class="cell-center">Centered</th>
                                                         <th class="cell-icon"></th>
-                                                        <th class="cell-right">Right Aligned</th>
+                                                        <th class="cell-right no-wrap">Right Aligned</th>
                                                     </tr>
                                                     </thead>
                                                     <tbody>
@@ -836,7 +836,12 @@
                                             <div class="popover">
                                                 Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.
                                             </div>
-                                            <div class="popover popover-borderless">
+                                            <div style="background:#eceff3;padding:10px 10px 22px 10px;margin-bottom:10px">
+                                                <div class="popover popover-borderless">
+                                                    Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.
+                                                </div>
+                                            </div>
+                                            <div class="popover popover-borderless popover-dark">
                                                 Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.
                                             </div>
                                         </div>
@@ -951,7 +956,7 @@
         </div>
 
         <!-- Modal -->
-        <div class="anchor anchor-offset-thick anchor-center anchor-modal" style="display: none">
+        <div class="anchor anchor-offset-thick anchor-center anchor-modal hidden">
             <div class="anchor-wrapper">
                 <div class="anchor-content">
 
@@ -966,10 +971,57 @@
                                 <div class="input-group">
                                     <input type="text" class="text text-wide" placeholder="This is some text">
                                 </div>
-                                <div class="input-group-inline modal-controls">
+                                <hr>
+                                <div class="input-group-inline input-group-right">
                                     <div class="button">Cancel</div>
                                     <div class="button button-primary">Okay</div>
                                 </div>
+                            </div>
+                        </section>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Login form -->
+        <div class="anchor anchor-offset-thick anchor-center anchor-modal hidden">
+            <div class="anchor-wrapper">
+                <div class="anchor-content">
+
+                    <div class="panel panel-modal" style="width:25vmax;min-width:256px">
+                        <header class="panel-header-inline panel-header-center">
+                            <h1>Battle Monsters</h1>
+                        </header>
+                        <section>
+                            <div class="panel-body panel-body-padded">
+
+                                <div class="well">
+                                    <strong>Welcome to Battle Monsters!</strong><br>
+                                    Please sign in or register below.
+                                </div>
+                                <div class="well well-error hidden" id="login-error">
+                                    Invalid credentials.
+                                </div>
+
+                                <div id="login-local">
+                                    <div class="input-group">
+                                        <input type="text" class="text text-wide text-large" placeholder="Email">
+                                    </div>
+                                    <div class="input-group">
+                                        <input type="password" class="text text-wide text-large" placeholder="Password">
+                                    </div>
+                                    <div class="input-group">
+                                        <div class="button button-primary button-wide button-large">Sign In</div>
+                                    </div>
+                                    <div class="input-group">
+                                        <div class="button button-wide button-large">Register</div>
+                                    </div>
+                                    <p class="align-center">
+                                        <a href="">Forgot Password?</a>
+                                    </p>
+                                </div>
+
                             </div>
                         </section>
                     </div>

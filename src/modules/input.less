@@ -64,6 +64,7 @@ button {
     outline: none;
 
     line-height: @inputHeight;
+    text-align: center;
     font-weight: 600;
 
     &.button-dark {
@@ -171,6 +172,11 @@ button {
         }
     }
 
+    &.button-wide {
+        box-sizing: border-box;
+        width: 100%;
+    }
+
     &:disabled {
         background-color: transparent;
         box-shadow: 0 0 0 1px @borderColorLight inset;
@@ -238,7 +244,7 @@ button {
         font-size: @fontSizeHeader;
         line-height: @listIconHeight;
 
-        &.text-width {
+        &.text-wide {
             width: 100%;
         }
     }
@@ -815,5 +821,11 @@ label.select-top {
         display: block;
         float: left;
         margin-left: @paddingThin;
+    }
+}
+
+.input-group-right {
+    > * {
+        float: right;
     }
 }

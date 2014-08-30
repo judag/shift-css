@@ -711,6 +711,17 @@ hr {
 .popover.popover-borderless:before {
   display: none;
 }
+.popover.popover-dark {
+  border: none;
+  background-color: #282b3a;
+  color: #ffffff;
+}
+.popover.popover-dark:before {
+  display: none;
+}
+.popover.popover-dark:after {
+  border-top-color: #282b3a;
+}
 /*------------------------------------*
     Helpers
 *------------------------------------*/
@@ -753,6 +764,21 @@ hr {
 .last {
   margin-bottom: 0     !important;
 }
+.no-wrap {
+  white-space: nowrap  !important;
+}
+.underline {
+  border-bottom: solid 1px #dadee1 !important;
+}
+.align-center {
+  text-align: center   !important;
+}
+.align-right {
+  text-align: right    !important;
+}
+.hidden {
+  display: none        !important;
+}
 .no-select {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -760,9 +786,6 @@ hr {
       -ms-user-select: none;
           user-select: none;
   cursor: default;
-}
-.underline {
-  border-bottom: solid 1px #dadee1;
 }
 code {
   display: inline-block;
@@ -790,6 +813,11 @@ code {
 .error-filled {
   color: #ffffff;
   background-color: #ed5565;
+}
+.truncate {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 /*------------------------------------*
     Labels
@@ -913,6 +941,7 @@ button {
   cursor: pointer;
   outline: none;
   line-height: 32px;
+  text-align: center;
   font-weight: 600;
 }
 .button.button-dark,
@@ -1015,6 +1044,11 @@ button {
 .button-segment.button-loading.loading.button-primary .spinner:after {
   border-bottom-color: #ffffff;
 }
+.button.button-wide,
+.button-segment.button-wide {
+  box-sizing: border-box;
+  width: 100%;
+}
 .button:disabled,
 .button-segment:disabled {
   background-color: transparent;
@@ -1068,7 +1102,7 @@ button {
   font-size: 15pt;
   line-height: 44px;
 }
-.text.text-large.text-width {
+.text.text-large.text-wide {
   width: 100%;
 }
 .text.text-code {
@@ -1529,6 +1563,9 @@ label.select-top {
   float: left;
   margin-left: 10px;
 }
+.input-group-right > * {
+  float: right;
+}
 /*------------------------------------*
     Anchor
 *------------------------------------*/
@@ -1893,25 +1930,6 @@ div.row {
 }
 .panel-nav .panel-body {
   padding: 17px 0;
-}
-/*------------------------------------*
-    Modals
-*------------------------------------*/
-.panel-modal .panel-body {
-  padding-bottom: 49px;
-}
-.panel-modal .modal-controls {
-  position: absolute;
-  display: block;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 32px;
-  padding: 17px;
-  padding-top: 0;
-}
-.panel-modal .modal-controls > * {
-  float: right;
 }
 .modal-close {
   position: absolute;

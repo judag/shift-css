@@ -115,8 +115,18 @@
     ul,
     .input-group,
     .input-group-inline,
-    .table {
-        margin-bottom: @padding;
+    .table,
+    .well,
+    .popover {
+        margin-bottom: @paddingThin;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    .popover {
+        margin-bottom: @paddingThin + 12px;
 
         &:last-child {
             margin-bottom: 0;
@@ -129,7 +139,8 @@
     Navigation Panel
 *------------------------------------*/
 
-.panel-nav, .panel-dark {
+.panel-nav,
+.panel-dark {
     background-color: @navBackgroundColor;
     color: @navTextColor;
     box-shadow: none !important;

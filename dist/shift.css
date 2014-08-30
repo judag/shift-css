@@ -1,4 +1,4 @@
-/*! shift-css - v0.0.1 - 2014-08-28
+/*! shift-css - v0.0.1 - 2014-08-29
 * https://github.com/jordanranson/shift-css
 * Copyright (c) 2014 Jordan Ranson; Licensed under the Apache2 license */
 /*------------------------------------*
@@ -614,6 +614,74 @@ hr {
   border-bottom-color: #ffffff;
 }
 /*------------------------------------*
+    Wells
+*------------------------------------*/
+.well {
+  padding: 10px;
+  background-color: #eceff3;
+}
+.well-success,
+.well-info,
+.well-warning,
+.well-error {
+  color: #ffffff;
+}
+.well-success {
+  background-color: #48cfad;
+}
+.well-info {
+  background-color: #40b1d0;
+}
+.well-warning {
+  background-color: #ffce54;
+}
+.well-error {
+  background-color: #ed5565;
+}
+.well-code {
+  font-size: 11pt;
+}
+/*------------------------------------*
+    Popovers
+*------------------------------------*/
+.popover {
+  position: relative;
+  padding: 10px;
+  background-color: #ffffff;
+  border: solid 1px #dce2e9;
+}
+.popover:before,
+.popover:after {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 0;
+  bottom: -12px;
+  left: 50%;
+}
+.popover:before {
+  margin-left: -12px;
+  margin-bottom: -1px;
+  z-index: 1;
+  border-left: solid 13px transparent;
+  border-right: solid 13px transparent;
+  border-top: solid 13px #dce2e9;
+}
+.popover:after {
+  margin-left: -11px;
+  z-index: 2;
+  border-left: solid 12px transparent;
+  border-right: solid 12px transparent;
+  border-top: solid 12px #ffffff;
+}
+.popover.popover-borderless {
+  border: none;
+}
+.popover.popover-borderless:before {
+  display: none;
+}
+/*------------------------------------*
     Helpers
 *------------------------------------*/
 .push-left {
@@ -749,82 +817,6 @@ label.label {
 }
 .progress-bar.progress-bar-wide {
   width: 100%;
-}
-/*------------------------------------*
-    Tables
-*------------------------------------*/
-table.table th,
-table.table td {
-  box-sizing: border-box;
-  padding: 0 10px;
-  height: 32px;
-  line-height: 32px;
-}
-table.table thead th {
-  background-color: #3b3f53;
-  color: #ffffff;
-  font-weight: 400;
-}
-table.table.table-small th,
-table.table.table-small td {
-  padding: 0 8px;
-  height: 26px;
-  line-height: 26px;
-  font-size: 11pt;
-}
-table.table.table-large th,
-table.table.table-large td {
-  padding: 0 17px;
-  height: 44px;
-  line-height: 44px;
-  font-size: 15pt;
-}
-table.table.table-striped tbody tr:nth-child(2n) td {
-  background-color: #f4f6f8;
-}
-table.table:not(.table-inline) td {
-  box-shadow: -1px -1px 0 #eceff3 inset;
-}
-table.table:not(.table-inline) td:first-child {
-  box-shadow: -1px -1px 0 #eceff3 inset, 1px 0 0 #eceff3 inset;
-}
-table.table:not(.table-inline) tbody tr:first-child td {
-  box-shadow: 0 1px 0 #eceff3 inset, -1px -1px 0 #eceff3 inset;
-}
-table.table:not(.table-inline) tbody tr:first-child td:first-child {
-  box-shadow: 0 1px 0 #eceff3 inset, -1px -1px 0 #eceff3 inset, 1px 0 0 #eceff3 inset;
-}
-table.table.table-inline td {
-  box-shadow: 0 -1px 0 #eceff3 inset;
-}
-table.table.table-inline tr:last-child td {
-  box-shadow: none;
-}
-table.table.table-wide {
-  width: 100%;
-}
-table.table .cell-center {
-  text-align: center;
-}
-table.table .cell-icon {
-  min-width: 32px;
-  text-align: center;
-}
-table.table .cell-right {
-  text-align: right;
-}
-table.table tr.active td {
-  box-shadow: 0 -1px 0 #40b1d0 !important;
-  background-color: #40b1d0 !important;
-  color: #ffffff;
-}
-table.table tr.disabled td {
-  color: #dadee1;
-}
-table.table tr.disabled.active td {
-  box-shadow: none !important;
-  background-color: #eceff3 !important;
-  color: #ffffff;
 }
 /*------------------------------------*
     Global Input Styles
@@ -1820,15 +1812,25 @@ div.row {
 .panel-body ul,
 .panel-body .input-group,
 .panel-body .input-group-inline,
-.panel-body .table {
-  margin-bottom: 17px;
+.panel-body .table,
+.panel-body .well,
+.panel-body .popover {
+  margin-bottom: 10px;
 }
 .panel-body p:last-child,
 .panel-body ol:last-child,
 .panel-body ul:last-child,
 .panel-body .input-group:last-child,
 .panel-body .input-group-inline:last-child,
-.panel-body .table:last-child {
+.panel-body .table:last-child,
+.panel-body .well:last-child,
+.panel-body .popover:last-child {
+  margin-bottom: 0;
+}
+.panel-body .popover {
+  margin-bottom: 22px;
+}
+.panel-body .popover:last-child {
   margin-bottom: 0;
 }
 /*------------------------------------*
@@ -2076,3 +2078,76 @@ div.row {
 /*------------------------------------*
     Table
 *------------------------------------*/
+table.table th,
+table.table td {
+  box-sizing: border-box;
+  padding: 0 10px;
+  height: 32px;
+  line-height: 32px;
+}
+table.table thead th {
+  background-color: #3b3f53;
+  color: #ffffff;
+  font-weight: 400;
+}
+table.table.table-small th,
+table.table.table-small td {
+  padding: 0 8px;
+  height: 26px;
+  line-height: 26px;
+  font-size: 11pt;
+}
+table.table.table-large th,
+table.table.table-large td {
+  padding: 0 17px;
+  height: 44px;
+  line-height: 44px;
+  font-size: 15pt;
+}
+table.table.table-striped tbody tr:nth-child(2n) td {
+  background-color: #f4f6f8;
+}
+table.table:not(.table-inline) td {
+  box-shadow: -1px -1px 0 #eceff3 inset;
+}
+table.table:not(.table-inline) td:first-child {
+  box-shadow: -1px -1px 0 #eceff3 inset, 1px 0 0 #eceff3 inset;
+}
+table.table:not(.table-inline) tbody tr:first-child td {
+  box-shadow: 0 1px 0 #eceff3 inset, -1px -1px 0 #eceff3 inset;
+}
+table.table:not(.table-inline) tbody tr:first-child td:first-child {
+  box-shadow: 0 1px 0 #eceff3 inset, -1px -1px 0 #eceff3 inset, 1px 0 0 #eceff3 inset;
+}
+table.table.table-inline td {
+  box-shadow: 0 -1px 0 #eceff3 inset;
+}
+table.table.table-inline tr:last-child td {
+  box-shadow: none;
+}
+table.table.table-wide {
+  width: 100%;
+}
+table.table .cell-center {
+  text-align: center;
+}
+table.table .cell-icon {
+  min-width: 32px;
+  text-align: center;
+}
+table.table .cell-right {
+  text-align: right;
+}
+table.table tr.active td {
+  box-shadow: 0 -1px 0 #40b1d0 !important;
+  background-color: #40b1d0 !important;
+  color: #ffffff;
+}
+table.table tr.disabled td {
+  color: #dadee1;
+}
+table.table tr.disabled.active td {
+  box-shadow: none !important;
+  background-color: #eceff3 !important;
+  color: #ffffff;
+}

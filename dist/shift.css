@@ -1,4 +1,4 @@
-/*! shift-css - v0.0.1 - 2014-08-29
+/*! shift-css - v0.0.1 - 2014-08-30
 * https://github.com/jordanranson/shift-css
 * Copyright (c) 2014 Jordan Ranson; Licensed under the Apache2 license */
 /*------------------------------------*
@@ -531,6 +531,19 @@ hr {
   font-size: 9pt;
   text-align: center;
 }
+.notification {
+  position: absolute;
+  width: 40vmax;
+  margin-left: -20vmax;
+  z-index: 9900000;
+  box-shadow: 0 2px 45px #3b3f53;
+}
+.notification .well {
+  padding: 17px;
+}
+/*------------------------------------*
+    Spinner
+*------------------------------------*/
 @-webkit-keyframes spinnerAnimation {
   0% {
     -webkit-transform: rotate(0deg);
@@ -626,6 +639,20 @@ hr {
 .well-error {
   color: #ffffff;
 }
+.well-success .subtitle,
+.well-info .subtitle,
+.well-warning .subtitle,
+.well-error .subtitle {
+  color: #ffffff;
+  opacity: 0.7;
+}
+.well-success .modal-close,
+.well-info .modal-close,
+.well-warning .modal-close,
+.well-error .modal-close {
+  color: #ffffff;
+  opacity: 0.7;
+}
 .well-success {
   background-color: #48cfad;
 }
@@ -640,6 +667,9 @@ hr {
 }
 .well-code {
   font-size: 11pt;
+}
+.well-white {
+  background-color: #ffffff;
 }
 /*------------------------------------*
     Popovers
@@ -730,6 +760,15 @@ hr {
       -ms-user-select: none;
           user-select: none;
   cursor: default;
+}
+.underline {
+  border-bottom: solid 1px #dadee1;
+}
+code {
+  display: inline-block;
+  padding: 0 10px;
+  background: #eceff3;
+  font-size: 90%;
 }
 .success {
   color: #2aa083;
@@ -1306,6 +1345,12 @@ input.toggle:disabled ~ label.label {
   width: 200px;
   line-height: 0;
   word-spacing: 0;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: default;
 }
 .select label {
   display: block;
@@ -1875,6 +1920,18 @@ div.row {
   width: 32px;
   height: 32px;
   cursor: pointer;
+  color: #919699;
+}
+.modal-close.modal-close-small {
+  width: 16px;
+  height: 16px;
+  font-size: 75%;
+  line-height: 16px;
+}
+.modal-close.modal-close-small:after {
+  width: 16px;
+  height: 16px;
+  line-height: 16px;
 }
 .modal-close:after {
   content: '×';
@@ -1886,7 +1943,6 @@ div.row {
   height: 32px;
   font-weight: 600;
   line-height: 32px;
-  color: #919699;
   text-align: center;
   font-size: 200%;
 }

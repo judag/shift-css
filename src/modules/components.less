@@ -198,6 +198,25 @@
     text-align: center;
 }
 
+.notification {
+    position: absolute;
+
+    width: 40vmax;
+    margin-left: -20vmax;
+
+    z-index: 9900000;
+    box-shadow: 0 2px 45px @navBackgroundColor;
+
+    .well {
+        padding: @padding;
+    }
+}
+
+
+/*------------------------------------*
+    Spinner
+*------------------------------------*/
+
 @keyframes spinnerAnimation {
     0% {
         transform: rotate(0deg);
@@ -279,6 +298,16 @@
 .well-warning,
 .well-error {
     color: @white;
+
+    .subtitle {
+        color: @white;
+        opacity: 0.7;
+    }
+
+    .modal-close {
+        color: @white;
+        opacity: 0.7;
+    }
 }
 
 .well-success {
@@ -299,6 +328,10 @@
 
 .well-code {
     font-size: @fontSizeSmall;
+}
+
+.well-white {
+    background-color: @white;
 }
 
 
@@ -380,6 +413,18 @@
     cursor: default;
 }
 
+.underline {
+    border-bottom: solid 1px @borderColor;
+}
+
+code {
+    display: inline-block;
+    padding: 0 @paddingThin;
+
+    background: @borderColorLight;
+    font-size: 90%;
+}
+
 .success {
      color: darken(@success, 15%);
 }
@@ -405,10 +450,6 @@
 .error-filled {
     color: @white;
     background-color: @error;
-}
-
-.spinner {
-
 }
 
 

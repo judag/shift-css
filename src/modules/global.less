@@ -26,6 +26,25 @@ body {
     z-index: 1;
 }
 
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: rgba(40,43,58,0.05);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(40,43,58,0.1);
+    cursor: pointer;
+}
+
+*:hover {
+    &::-webkit-scrollbar-thumb {
+        background-color: rgba(40,43,58,0.15);
+    }
+}
+
 
 /*------------------------------------*
     Anchors
@@ -49,6 +68,11 @@ a:visited {
     Typography
 *------------------------------------*/
 
+::selection {
+    background: lighten(@primaryColor,25%);
+    color: @white;
+}
+
 h1,
 h2,
 h3 {
@@ -69,6 +93,14 @@ small {
 
 var {
     font-style: normal;
+}
+
+code {
+    display: inline-block;
+    padding: 0 @paddingThin;
+
+    background: @borderColorLight;
+    font-size: 11pt;
 }
 
 h1 {

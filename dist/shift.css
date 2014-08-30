@@ -190,6 +190,19 @@ body {
   bottom: 0;
   z-index: 1;
 }
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background-color: rgba(40, 43, 58, 0.05);
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(40, 43, 58, 0.1);
+  cursor: pointer;
+}
+*:hover::-webkit-scrollbar-thumb {
+  background-color: rgba(40, 43, 58, 0.15);
+}
 /*------------------------------------*
     Anchors
 *------------------------------------*/
@@ -207,6 +220,14 @@ a:visited {
 /*------------------------------------*
     Typography
 *------------------------------------*/
+::-moz-selection {
+  background: #a6dbe9;
+  color: #ffffff;
+}
+::selection {
+  background: #a6dbe9;
+  color: #ffffff;
+}
 h1,
 h2,
 h3 {
@@ -229,6 +250,12 @@ small {
 }
 var {
   font-style: normal;
+}
+code {
+  display: inline-block;
+  padding: 0 10px;
+  background: #eceff3;
+  font-size: 11pt;
 }
 h1 {
   margin-bottom: 17px;
@@ -787,12 +814,6 @@ hr {
           user-select: none;
   cursor: default;
 }
-code {
-  display: inline-block;
-  padding: 0 10px;
-  background: #eceff3;
-  font-size: 85%;
-}
 .success {
   color: #2aa083;
 }
@@ -1109,7 +1130,7 @@ button {
   background: #eceff3;
   box-shadow: 0 0 0 1px #dadee1 inset;
   font-family: monospace;
-  font-size: 80%;
+  font-size: 11pt;
 }
 .text:disabled {
   background-color: transparent;
@@ -1552,9 +1573,6 @@ label.select-top {
 /*------------------------------------*
     Input Groups
 *------------------------------------*/
-.input-group {
-  min-height: 32px;
-}
 .input-group-inline {
   min-height: 32px;
 }

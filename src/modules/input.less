@@ -183,12 +183,17 @@ a.button {
         width: 100%;
     }
 
-    &:disabled {
+    &:disabled,
+    &.button-disabled {
         background-color: transparent;
         box-shadow: 0 0 0 1px @borderColorLight inset;
         cursor: default;
 
         color: @borderColor;
+    }
+
+    .button-disabled {
+        pointer-events: none;
     }
 }
 

@@ -1,4 +1,4 @@
-/*! shift-css - v0.0.1 - 2014-08-30
+/*! shift-css - v0.0.1 - 2014-09-05
 * https://github.com/jordanranson/shift-css
 * Copyright (c) 2014 Jordan Ranson; Licensed under the Apache2 license */
 /*------------------------------------*
@@ -233,9 +233,9 @@ h2,
 h3 {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   cursor: default;
   color: #2d3140;
 }
@@ -806,12 +806,17 @@ hr {
 .hidden {
   display: none        !important;
 }
+.disabled {
+  opacity: .5 !important;
+  cursor: default !important;
+  pointer-events: none;
+}
 .no-select {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   cursor: default;
 }
 .success {
@@ -946,6 +951,11 @@ button {
   pointer-events: none !important;
   box-shadow: 0 0 3px 1px #63cdeb;
 }
+a.button {
+  display: inline-block;
+  text-decoration: none;
+  color: #606473;
+}
 .button,
 .button-segment {
   position: relative;
@@ -955,9 +965,9 @@ button {
   box-shadow: 0 0 0 1px #dce2e9 inset;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   cursor: default;
   cursor: pointer;
   outline: none;
@@ -1071,11 +1081,17 @@ button {
   width: 100%;
 }
 .button:disabled,
-.button-segment:disabled {
+.button-segment:disabled,
+.button.button-disabled,
+.button-segment.button-disabled {
   background-color: transparent;
   box-shadow: 0 0 0 1px #eceff3 inset;
   cursor: default;
   color: #dadee1;
+}
+.button .button-disabled,
+.button-segment .button-disabled {
+  pointer-events: none;
 }
 /*------------------------------------*
     Text input
@@ -1168,9 +1184,9 @@ input.radio + label.radio {
   padding-left: 16px;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   cursor: default;
   cursor: pointer;
   outline: none;
@@ -1222,9 +1238,9 @@ input.toggle {
   display: none;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   cursor: default;
 }
 input.toggle + label.toggle {
@@ -1235,9 +1251,9 @@ input.toggle + label.toggle {
   box-shadow: 0 0 0 1px #eceff3 inset;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   cursor: default;
   cursor: pointer;
   outline: none;
@@ -1309,9 +1325,9 @@ input.toggle:disabled ~ label.label {
   line-height: 32px;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   cursor: default;
 }
 .toggle-group > div {
@@ -1403,9 +1419,9 @@ input.toggle:disabled ~ label.label {
   word-spacing: 0;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   cursor: default;
 }
 .select label {
@@ -2039,6 +2055,13 @@ div.row {
 .panel-nav .panel-body {
   padding: 17px 0;
 }
+.panel-nav a.active {
+  cursor: none;
+}
+.panel-nav hr {
+  border-top-color: #afb4cc;
+  opacity: .15;
+}
 .modal-close {
   position: absolute;
   right: 10px;
@@ -2146,9 +2169,9 @@ div.row {
   box-shadow: 0 -1px 0 #dadee1 inset;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   cursor: default;
 }
 .list-block li.active {
@@ -2219,9 +2242,9 @@ div.row {
   margin-bottom: 7px;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   cursor: default;
 }
 .list-nav a,
@@ -2463,9 +2486,9 @@ table.table tr.disabled.active td {
   box-shadow: -1px -1px 0 #dce2e9 inset, 0 1px 0 #dce2e9 inset;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   cursor: default;
   cursor: pointer;
   outline: none;
